@@ -1,0 +1,12 @@
+@import 'fonts.scss';
+
+// Шаблоны со шрифтами
+%primary-font {
+  font-family: 'PlayfairDisplay', Times, sans-serif;
+  font-size: 48px;
+}
+%secondary-font {
+  font-family: 'Roboto', Times, sans-serif;
+  font-size: 16px;
+}
+

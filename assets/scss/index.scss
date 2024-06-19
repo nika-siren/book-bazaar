@@ -1,0 +1,10 @@
+@import 'header.scss';
+@import 'main.scss';
+
+/*sass --watch assets/scss/index.scss assets/styles/styles.css*/
+
+// Общие настройки
+* {
+  margin: 0;
+  padding: 0;
+}
