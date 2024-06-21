@@ -1,1 +1,14 @@
-//ЭТОТ БЛОК БУДЕТ НЕВИДЕМЫМ ДО ПРИМЕНЕНИЯ ФИЛЬТРА ПОИСКА
+//ЭТОТ БЛОК НЕВИДЕМ ДО ПРИМЕНЕНИЯ ФИЛЬТРА ПОИСКА
+.cards {
+  width: 1440px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+  padding: 10px;
+}
+
+.card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}

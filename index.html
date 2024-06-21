@@ -8,8 +8,26 @@
   <title>BookBazaar</title>
 </head>
 <body>
-  <header><div class="nav">Это главный шрифт 'PlayfairDisplay'</div></header>
-  <main>Тут будет невидимый блок main, сделаю его сразу за header, потом ваши блоки</main>
+  <header>
+    <div class="header-wrapper">
+      <div class="header-wrapper__title">Book<span class="header-logo">Bazaar</span></div>
+      <nav class="header-wrapper__nav">
+        <ul class="header-wrapper__nav-items">
+          <li class="nav-item"><a href="#"></a>Новинки</li>
+          <li class="nav-item"><a href="#"></a>Рекомендации</li>
+          <li class="nav-item item-contacts"><a href="#"></a>Контакты</li>
+        </ul>
+      </nav>
+      <div class="header-wrapper__search">
+        <label for="user-input"></label>
+        <input type="text" id="user-input" placeholder="Введите фамилию автора">
+        <button class="btn-search">Поиск</button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="cards"></div>
+  </main>
 
   <script src="./index.js"></script>
 </body>
