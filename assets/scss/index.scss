@@ -1,6 +1,8 @@
 @import 'header.scss';
 @import 'main.scss';
+@import 'loader.scss';
 
+//Запуск препроцессора
 /*sass --watch assets/scss/index.scss assets/styles/styles.css*/
 
 // Общие настройки

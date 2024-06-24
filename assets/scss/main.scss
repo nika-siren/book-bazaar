@@ -1,14 +1,67 @@
+@import 'patterns.scss';
+@import 'variables.scss';
+
 //ЭТОТ БЛОК НЕВИДЕМ ДО ПРИМЕНЕНИЯ ФИЛЬТРА ПОИСКА
+main {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  position: relative;
+}
+
+.main-hidden, .error-request-hidden {
+  display: none;
+}
+
 .cards {
-  width: 1440px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 30px;
-  padding: 10px;
+  padding: 20px;
+  width: 1120px;
 }
 
 .card {
-  text-align: center;
+  @extend %secondary-font;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px;
+  transition: 0.5s;
+}
+
+.card:hover {
+  transform: scale(1.04);
+  background-color: $light-color-transparent;
+}
+
+.img-poster {
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.book-price {
+  margin: 20px 0 8px 0;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.btn-buy {
+  padding: 5px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: $dark-color;
+  color: white;
+}
+
+.highlight {
+  font-weight: bold;
+}
+
+.error-request {
+  @extend %primary-font;
+  margin-top: 10%;
+  font-weight: bold;
+  position: absolute;
 }

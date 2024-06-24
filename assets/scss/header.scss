@@ -19,6 +19,7 @@ header {
   @extend %primary-font;
   color: white;
   font-size: 38px;
+  cursor: pointer;
 }
 
 .header-logo {
@@ -46,7 +47,7 @@ header {
 #user-input {
   padding: 5px;
   border-radius: 50px;
-  width: 250px;
+  width: 180px;
 }
 
 .btn-search {

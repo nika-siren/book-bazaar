@@ -6,12 +6,12 @@
   font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf") format("truetype");
 }
-.header-wrapper__title {
+.error-request, .header-wrapper__title {
   font-family: "PlayfairDisplay", Times, sans-serif;
   font-size: 48px;
 }
 
-.header-wrapper__nav-items {
+.card, .header-wrapper__nav-items {
   font-family: "Roboto", Times, sans-serif;
   font-size: 16px;
 }
@@ -33,6 +33,7 @@ header {
 .header-wrapper__title {
   color: white;
   font-size: 38px;
+  cursor: pointer;
 }
 
 .header-logo {
@@ -59,7 +60,7 @@ header {
 #user-input {
   padding: 5px;
   border-radius: 50px;
-  width: 250px;
+  width: 180px;
 }
 
 .btn-search {
@@ -68,20 +69,112 @@ header {
   cursor: pointer;
 }
 
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+}
+.error-request, .header-wrapper__title {
+  font-family: "PlayfairDisplay", Times, sans-serif;
+  font-size: 48px;
+}
+
+.card, .header-wrapper__nav-items {
+  font-family: "Roboto", Times, sans-serif;
+  font-size: 16px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  position: relative;
+}
+
+.main-hidden, .error-request-hidden {
+  display: none;
+}
+
 .cards {
-  width: 1440px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 30px;
-  padding: 10px;
+  padding: 20px;
+  width: 1120px;
 }
 
 .card {
-  text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px;
+  transition: 0.5s;
 }
 
+.card:hover {
+  transform: scale(1.04);
+  background-color: rgba(164, 214, 207, 0.3);
+}
+
+.img-poster {
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.book-price {
+  margin: 20px 0 8px 0;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.btn-buy {
+  padding: 5px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: #177165;
+  color: white;
+}
+
+.highlight {
+  font-weight: bold;
+}
+
+.error-request {
+  margin-top: 10%;
+  font-weight: bold;
+  position: absolute;
+}
+
+.loader-hidden {
+  display: none;
+}
+
+.loader {
+  border: 20px solid rgba(164, 214, 207, 0.3);
+  border-top: 20px solid #A4D6CF;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /*sass --watch assets/scss/index.scss assets/styles/styles.css*/
 * {
   margin: 0;
