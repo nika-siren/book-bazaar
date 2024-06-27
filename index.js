@@ -113,48 +113,89 @@ headerTitle.addEventListener('click', function() {
 // Recomendations
 document.addEventListener('DOMContentLoaded', function () {
     const recommendationsApiUrl = 'https://www.googleapis.com/books/v1/volumes?q=subject:fiction';
-    const discountsApiUrl = 'https://www.googleapis.com/books/v1/volumes?q=subject:fiction';
-
+    const discountsApiUrl = 'https://www.googleapis.com/books/v1/volumes?q=subject:discounts';
+  
     const fetchBooks = (url, carouselId) => {
-        fetch(url)
+      fetch(url)
         .then(response => response.json())
         .then(data => {
-            const carousel = document.getElementById(carouselId);
-            const booksHtml = data.items.map(item => {
-                const book = item.volumeInfo;
-                const coverImage = book.imageLinks ? book.imageLinks.thumbnail : 'https://via.placeholder.com/128x192.png?text=No+Image';
-                return `
-                    <div class="carousel-item">
-                        <img src="${coverImage}" alt="${book.title}">
-                        <div class="book-info">
-                            <h5>${book.title}</h5>
-                            <p>${book.authors ? book.authors.join(', ') : 'Unknown Author'}</p>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-            carousel.innerHTML = booksHtml;
+          const carousel = document.getElementById(carouselId);
+          const booksHtml = data.items.map(item => {
+            const book = item.volumeInfo;
+            const coverImage = book.imageLinks ? book.imageLinks.thumbnail : 'https://via.placeholder.com/128x192.png?text=No+Image';
+            return `
+              <div class="carousel-item" data-id="${item.id}">
+                <img src="${coverImage}" alt="${book.title}">
+                <div class="book-info">
+                  <h5>${book.title}</h5>
+                  <p>${book.authors ? book.authors.join(', ') : 'Unknown Author'}</p>
+                </div>
+              </div>
+            `;
+          }).join('');
+          carousel.innerHTML = booksHtml;
+  
+          // Add click event to each book item
+          const items = carousel.querySelectorAll('.carousel-item');
+          items.forEach(item => {
+            item.addEventListener('click', () => showBookDetails(item.dataset.id, data.items, carouselId));
+          });
         })
         .catch(error => console.error('Error fetching books:', error));
     };
-    
+  
+    const showBookDetails = (id, books, carouselId) => {
+      const book = books.find(item => item.id === id).volumeInfo;
+      const bookDetailsHtml = `
+        <div class="book-details">
+          <img src="${book.imageLinks ? book.imageLinks.thumbnail : 'https://via.placeholder.com/128x192.png?text=No+Image'}" alt="${book.title}">
+          <div class="info">
+            <h2>${book.title}</h2>
+            <p>Автор: ${book.authors ? book.authors.join(', ') : 'Unknown Author'}</p>
+            <p>Описание: ${book.description || 'Описание недоступно'}</p>
+            <button class="btn-add-to-cart">В корзину</button>
+          </div>
+        </div>
+      `;
+      
+      // Determine the container for displaying the book details based on the carousel ID
+      let container;
+      if (carouselId === 'bookCarousel') {
+        container = document.querySelector('.recommendations .container');
+      } else {
+        container = document.querySelector('.discount .container');
+      }
+      
+      container.innerHTML = bookDetailsHtml;
+  
+      // Add to cart button functionality
+      const addToCartBtn = document.querySelector('.btn-add-to-cart');
+      addToCartBtn.addEventListener('click', () => {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(book);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Книга добавлена в корзину');
+      });
+    };
+  
     fetchBooks(recommendationsApiUrl, 'bookCarousel');
     fetchBooks(discountsApiUrl, 'discountCarousel');
-    
+  
     const setupCarouselControls = (prevBtnId, nextBtnId, carouselId) => {
-        const prevBtn = document.getElementById(prevBtnId);
-        const nextBtn = document.getElementById(nextBtnId);
-        const carousel = document.getElementById(carouselId);
-    
-        prevBtn.addEventListener('click', () => {
-            carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
-        });
-    
-        nextBtn.addEventListener('click', () => {
-            carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
-        });
+      const prevBtn = document.getElementById(prevBtnId);
+      const nextBtn = document.getElementById(nextBtnId);
+      const carousel = document.getElementById(carouselId);
+  
+      prevBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
+      });
+  
+      nextBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
+      });
     };
-    
+  
     setupCarouselControls('prevBtn', 'nextBtn', 'bookCarousel');
     setupCarouselControls('discountPrevBtn', 'discountNextBtn', 'discountCarousel');
-    });
+  });
+  
