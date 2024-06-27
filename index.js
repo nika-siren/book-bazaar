@@ -10,6 +10,10 @@ const patternUrl = /^https:\/\/covers\.openlibrary\.org\/b\/isbn\/([a-z0-9]+)-([
 const max = 300;
 const min = 100;
 
+//Переменная для отмены запросов к api
+//let isCancel = false;
+//let isProcessing = false;
+
 //Отображение html страницы
 async function displayBooks(title, author, publishYyear, publishPlace, urlPoster, price) {
     const bookCard = document.createElement('div');
@@ -58,6 +62,20 @@ async function getURLPoster(number) {
 
 //Событие по клику на кнопку "Поиск"
 btnSearch.addEventListener('click', async function() {
+    //console.log('первое значение ' + isCancel)
+    //isCancel = true;
+    //console.log('изменено на true ' + isCancel)
+
+    //await new Promise(resolve => setTimeout(resolve, 1000));
+
+    /*while (isProcessing) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+    }*/
+
+    /*isCancel = false;
+    isProcessing = true;
+    console.log('после ожидания 1 сек ' + isCancel)*/
+
     const loader = document.querySelector('.loader');
 
     loader.classList.remove('loader-hidden');
@@ -66,27 +84,55 @@ btnSearch.addEventListener('click', async function() {
 
     try {
         const response = await fetch('https://openlibrary.org/search.json?author=' + userInput.value + '&sort=new');
+        if (!response.ok) {
+            throw new Error('Ошибка сети');
+        }
         const data = await response.json();
         const dataArray = data.docs;
+        
+        /*if (isCancel) {
+            isProcessing = false;
+            console.log('остановка 1-го процесса');
+            return
+        };*/
 
         if (dataArray.length === 0) {
             throw new Error('Нет результатов для данного автора');
         }
 
-        loader.classList.add('loader-hidden');
-        main.classList.remove('main-hidden');
-
         let count = 0;
         for (let book of dataArray) {
             if (count > 19) break;
+            
+            /*if (isCancel) {
+                isProcessing = false;
+                console.log('остановка 2-го процесса');
+                return
+            };*/
+
             //проверка на то что ключ isbn есть в объекте book
             const urlPoster = 'isbn' in book ? await getURLPoster(book.isbn[0]) : null;
+            
+            /*if (isCancel) {
+                isProcessing = false;
+                console.log('остановка 3-го процесса');
+                return
+            };*/
 
             const price = getPrice()
+
+            loader.classList.add('loader-hidden');
+            main.classList.remove('main-hidden');
 
             await displayBooks(
                 book.title, book.author_name, book.publish_year, 
                 book.publish_place, urlPoster, price)
+            
+            /*if (isCancel) {
+                isProcessing = false;
+                console.log('остановка 4-го процесса');
+                return
+            };*/
 
             count ++;
         }
@@ -98,6 +144,10 @@ btnSearch.addEventListener('click', async function() {
         main.classList.remove('main-hidden');
         errorRequest.classList.remove('error-request-hidden');
         errorRequest.textContent = 'Сервер временно не доступен/ такого автора нет';
+    }
+    finally {
+        console.log('>>>', 'Процесс завершен');
+        //isProcessing = false;
     }
 })
 

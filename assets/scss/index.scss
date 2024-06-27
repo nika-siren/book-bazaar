@@ -2,6 +2,8 @@
 @import 'main.scss';
 @import 'loader.scss';
 
+@import 'patterns.scss';
+
 //Запуск препроцессора
 /*sass --watch assets/scss/index.scss assets/styles/styles.css*/
 
@@ -9,4 +11,27 @@
 * {
   margin: 0;
   padding: 0;
+}
+
+
+/*Медиа-запросы*/
+@media screen and (min-width: 634px) and (max-width: 992px) {
+
+  .header-wrapper__title, .header-logo {
+    @include primary-font-smaller;
+  }
+  .header-wrapper__nav-items {
+    @include secondary-font-smaller;
+  }
+  .header-wrapper__nav-items {
+    gap: 30px;
+  }
+  #user-input {
+    width: 17vw;
+    font-size: 1.5vw;
+  }
+  .btn-search {
+    padding: 3px 12px;
+    font-size: 1.6vw;
+  }
 }

@@ -18,7 +18,6 @@ header {
 .header-wrapper__title {
   @extend %primary-font;
   color: white;
-  font-size: 38px;
   cursor: pointer;
 }
 
@@ -33,6 +32,7 @@ header {
   gap: 60px;
   margin-top: 5px;
   list-style: none;
+  margin: 0 20px;
 }
 
 .nav-item {
@@ -45,7 +45,7 @@ header {
 }
 
 #user-input {
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 50px;
   width: 180px;
 }
@@ -55,3 +55,4 @@ header {
   border-radius: 50px;
   cursor: pointer;
 }
+

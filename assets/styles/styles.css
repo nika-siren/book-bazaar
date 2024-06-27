@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "PlayfairDisplay";
   src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
@@ -8,7 +9,7 @@
 }
 .error-request, .header-wrapper__title {
   font-family: "PlayfairDisplay", Times, sans-serif;
-  font-size: 48px;
+  font-size: 38px;
 }
 
 .card, .header-wrapper__nav-items {
@@ -32,7 +33,6 @@ header {
 
 .header-wrapper__title {
   color: white;
-  font-size: 38px;
   cursor: pointer;
 }
 
@@ -46,6 +46,7 @@ header {
   gap: 60px;
   margin-top: 5px;
   list-style: none;
+  margin: 0 20px;
 }
 
 .nav-item {
@@ -58,7 +59,7 @@ header {
 }
 
 #user-input {
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 50px;
   width: 180px;
 }
@@ -79,7 +80,7 @@ header {
 }
 .error-request, .header-wrapper__title {
   font-family: "PlayfairDisplay", Times, sans-serif;
-  font-size: 48px;
+  font-size: 38px;
 }
 
 .card, .header-wrapper__nav-items {
@@ -175,10 +176,51 @@ main {
     transform: rotate(360deg);
   }
 }
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+}
+.header-wrapper__title, .error-request {
+  font-family: "PlayfairDisplay", Times, sans-serif;
+  font-size: 38px;
+}
+
+.header-wrapper__nav-items, .card {
+  font-family: "Roboto", Times, sans-serif;
+  font-size: 16px;
+}
+
 /*sass --watch assets/scss/index.scss assets/styles/styles.css*/
 * {
   margin: 0;
   padding: 0;
+}
+
+/*Медиа-запросы*/
+@media screen and (min-width: 634px) and (max-width: 992px) {
+  .header-wrapper__title, .header-logo {
+    font-family: "PlayfairDisplay", Times, sans-serif;
+    font-size: calc(1rem + 2vw);
+  }
+  .header-wrapper__nav-items {
+    font-family: "Roboto", Times, sans-serif;
+    font-size: 1.4vw;
+  }
+  .header-wrapper__nav-items {
+    gap: 30px;
+  }
+  #user-input {
+    width: 17vw;
+    font-size: 1.5vw;
+  }
+  .btn-search {
+    padding: 3px 12px;
+    font-size: 1.6vw;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
