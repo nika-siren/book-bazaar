@@ -1,0 +1,43 @@
+.recommendations,
+.discount {
+  .container {
+    .carousel-container {
+      display: flex;
+      align-items: center;
+
+      .carousel {
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+        scroll-snap-type: x mandatory;
+
+        .carousel-item {
+          flex: 0 0 33.333%;
+          scroll-snap-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 10px;
+          box-sizing: border-box;
+
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+
+          .book-info {
+            text-align: center;
+          }
+        }
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+    }
+  }
+}

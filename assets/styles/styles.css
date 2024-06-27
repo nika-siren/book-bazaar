@@ -175,6 +175,47 @@ main {
     transform: rotate(360deg);
   }
 }
+.recommendations .container .carousel-container,
+.discount .container .carousel-container {
+  display: flex;
+  align-items: center;
+}
+.recommendations .container .carousel-container .carousel,
+.discount .container .carousel-container .carousel {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  scroll-snap-type: x mandatory;
+}
+.recommendations .container .carousel-container .carousel .carousel-item,
+.discount .container .carousel-container .carousel .carousel-item {
+  flex: 0 0 33.333%;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.recommendations .container .carousel-container .carousel .carousel-item img,
+.discount .container .carousel-container .carousel .carousel-item img {
+  max-width: 100%;
+  height: auto;
+}
+.recommendations .container .carousel-container .carousel .carousel-item .book-info,
+.discount .container .carousel-container .carousel .carousel-item .book-info {
+  text-align: center;
+}
+.recommendations .container .carousel-container .carousel-control-prev,
+.recommendations .container .carousel-container .carousel-control-next,
+.discount .container .carousel-container .carousel-control-prev,
+.discount .container .carousel-container .carousel-control-next {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
 /*sass --watch assets/scss/index.scss assets/styles/styles.css*/
 * {
   margin: 0;
