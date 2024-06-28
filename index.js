@@ -66,6 +66,9 @@ btnSearch.addEventListener('click', async function() {
 
     try {
         const response = await fetch('https://openlibrary.org/search.json?author=' + userInput.value + '&sort=new');
+        if (!response.ok) {
+            throw new Error('Ошибка сети');
+        }
         const data = await response.json();
         const dataArray = data.docs;
 
@@ -73,21 +76,22 @@ btnSearch.addEventListener('click', async function() {
             throw new Error('Нет результатов для данного автора');
         }
 
-        loader.classList.add('loader-hidden');
-        main.classList.remove('main-hidden');
-
         let count = 0;
         for (let book of dataArray) {
             if (count > 19) break;
+            
             //проверка на то что ключ isbn есть в объекте book
             const urlPoster = 'isbn' in book ? await getURLPoster(book.isbn[0]) : null;
-
+            
             const price = getPrice()
+
+            loader.classList.add('loader-hidden');
+            main.classList.remove('main-hidden');
 
             await displayBooks(
                 book.title, book.author_name, book.publish_year, 
                 book.publish_place, urlPoster, price)
-
+            
             count ++;
         }
     }
@@ -98,6 +102,9 @@ btnSearch.addEventListener('click', async function() {
         main.classList.remove('main-hidden');
         errorRequest.classList.remove('error-request-hidden');
         errorRequest.textContent = 'Сервер временно не доступен/ такого автора нет';
+    }
+    finally {
+        console.log('>>>', 'Процесс завершен');
     }
 })
 
