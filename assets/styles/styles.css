@@ -177,6 +177,116 @@ main {
     transform: rotate(360deg);
   }
 }
+.recommendations .container,
+.discount .container {
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: rgb(138, 192, 138);
+}
+.recommendations .container .carousel-container,
+.discount .container .carousel-container {
+  display: flex;
+  align-items: center;
+}
+.recommendations .container .carousel-container .carousel,
+.discount .container .carousel-container .carousel {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  scroll-snap-type: x mandatory;
+}
+.recommendations .container .carousel-container .carousel .carousel-item,
+.discount .container .carousel-container .carousel .carousel-item {
+  flex: 0 0 33.333%;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.recommendations .container .carousel-container .carousel .carousel-item img,
+.discount .container .carousel-container .carousel .carousel-item img {
+  max-width: 100%;
+  height: auto;
+}
+.recommendations .container .carousel-container .carousel .carousel-item .book-info,
+.discount .container .carousel-container .carousel .carousel-item .book-info {
+  text-align: center;
+}
+.recommendations .container .carousel-container .carousel p,
+.discount .container .carousel-container .carousel p {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: large;
+}
+.recommendations .container .carousel-container h1,
+.discount .container .carousel-container h1 {
+  margin-left: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: rgb(44, 70, 61);
+}
+.recommendations .container .carousel-container .carousel-control-prev,
+.recommendations .container .carousel-container .carousel-control-next,
+.discount .container .carousel-container .carousel-control-prev,
+.discount .container .carousel-container .carousel-control-next {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+}
+.recommendations .container .carousel-container .carousel-control-prev img,
+.recommendations .container .carousel-container .carousel-control-next img,
+.discount .container .carousel-container .carousel-control-prev img,
+.discount .container .carousel-container .carousel-control-next img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  align-items: center;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 800px;
+  margin: 20px auto;
+  margin-left: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.book-details img {
+  max-width: 200px;
+  height: auto;
+  margin-right: 20px;
+}
+.book-details .info {
+  display: flex;
+  flex-direction: column;
+}
+.book-details h2 {
+  margin: 0 0 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.book-details p {
+  margin: 0 0 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.book-details button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 4px;
+  margin-top: auto;
+}
+
 @font-face {
   font-family: "PlayfairDisplay";
   src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");

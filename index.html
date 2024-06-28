@@ -30,7 +30,34 @@
     <div class="error-request error-request-hidden"></div>
   </main>
   <div class="loader loader-hidden"></div>
-
+  <div class="recommendations">
+    <div class="container mt-5">
+      <h1>Что почитать: рекомендации</h1>
+      <div class="carousel-container">
+          <button class="carousel-control-prev" id="prevBtn"><img src="./assets/images/left.jpg" alt="prev"></button>
+          <div class="carousel" id="bookCarousel">
+              <!-- Books will be dynamically loaded here -->
+          </div>
+          <button class="carousel-control-next" id="nextBtn"><img src="./assets/images/right.jpg" alt="next"></button>
+      </div>
+    </div>
+  </div>
+  <div class="discount">
+    <div class="container mt-5">
+      <h1>Акции и Скидки</h1>
+      <p>Лучшие предложения месяца: получи спец цену и подарок на любую книгу из коллекции</p>
+      <div class="carousel-container">
+          <button class="carousel-control-prev" id="discountPrevBtn"><img src="./assets/images/left.jpg" alt="prev"></button>
+          <div class="carousel" id="discountCarousel">
+              <!-- Discount books will be dynamically loaded here -->
+          </div>
+          <button class="carousel-control-next" id="discountNextBtn"><img src="./assets/images/right.jpg" alt="next"></button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./index.js"></script>
 </body>
 </html>
