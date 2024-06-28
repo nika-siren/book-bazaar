@@ -1,36 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assets/styles/normalize.css">
-  <link rel="stylesheet" href="./assets/styles/styles.css">
-  <title>BookBazaar</title>
-</head>
-<body>
-  <header>
-    <div class="header-wrapper">
-      <div class="header-wrapper__title">Book<span class="header-logo">Bazaar</span></div>
-      <nav class="header-wrapper__nav">
-        <ul class="header-wrapper__nav-items">
-          <li class="nav-item"><a href="#"></a>Новинки</li>
-          <li class="nav-item"><a href="#"></a>Рекомендации</li>
-          <li class="nav-item item-contacts"><a href="#"></a>Контакты</li>
-        </ul>
-      </nav>
-      <div class="header-wrapper__search">
-        <label for="user-input"></label>
-        <input type="text" id="user-input" placeholder="Введите фамилию автора">
-        <button class="btn-search">Поиск</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/normalize.css" />
+    <link rel="stylesheet" href="./assets/styles/styles.css" />
+    <title>BookBazaar</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-wrapper">
+        <div class="header-wrapper__title">
+          Book<span class="header-logo">Bazaar</span>
+        </div>
+        <nav class="header-wrapper__nav">
+          <ul class="header-wrapper__nav-items">
+            <li class="nav-item"><a href="#"></a>Новинки</li>
+            <li class="nav-item"><a href="#"></a>Рекомендации</li>
+            <li class="nav-item item-contacts"><a href="#"></a>Контакты</li>
+          </ul>
+        </nav>
+        <div class="header-wrapper__search">
+          <label for="user-input"></label>
+          <input
+            type="text"
+            id="user-input"
+            placeholder="Введите фамилию автора"
+          />
+          <button class="btn-search">Поиск</button>
+        </div>
       </div>
-    </div>
-  </header>
-  <main class="main-hidden">
-    <div class="cards"></div>
-    <div class="error-request error-request-hidden"></div>
-  </main>
-  <div class="loader loader-hidden"></div>
+    </header>
+    <main class="main-hidden">
+      <div class="cards"></div>
+      <div class="error-request error-request-hidden"></div>
+    </main>
+    <div class="loader loader-hidden"></div>
+    <footer>
+      <div class="footer__main">
+        <div class="footer__nav">
+          <div class="footer__nav-item">
+            <h2 class="footer__nav-h2">Новинки</h2>
+            <ul class="footer__nav-list">
+              <li class="footer__list-items">Lorem Ipsum</li>
+              <li class="footer__list-items">Lorem Ipsum</li>
+              <li class="footer__list-items">Lorem Ipsum</li>
+            </ul>
+          </div>
+          <div class="footer__nav-item">
+            <h2 class="footer__nav-h2">Рекомендации</h2>
+            <ul class="footer__nav-list">
+              <li class="footer__list-items">Lorem Ipsum</li>
+              <li class="footer__list-items">Lorem Ipsum</li>
+              <li class="footer__list-items">Lorem Ipsum</li>
+            </ul>
+          </div>
+          <div class="footer__nav-item">
+            <h2 class="footer__nav-h2">Контакты</h2>
+            <ul class="footer__nav-list">
+              <li class="footer__list-items">Lorem Ipsum</li>
+              <li class="footer__list-items">Lorem Ipsum</li>
+              <li class="footer__list-items">Lorem Ipsum</li>
+            </ul>
+          </div>
+        </div>
+        <div class="about__BookBazaare">
+          <div class="about__BookBazaare__title">
+            Book<span class="footer-logo">Bazaar</span>
+          </div>
+          <p class="about__BookBazaare-text">
+            Lorem Ipsum is simply dummy text of the printing and typeset
+            industry has been the industry's standard.
+          </p>
+        </div>
+      </div>
+      <div class="creators">
+        <p class="about_creator">
+          © 2024 Cайт сделан школой
+          <a href="https://itgirlschool.com" class="creator-link"
+            >ITGIRLSCHOOL</a
+          >
+        </p>
+        <div class="creators-contacts">
+          <p class="creators_text">Контакты разработчиков</p>
+          <div class="creators-links">
+            <ul>
+              <a href="https://t.me/nika_sirenn" class="creators-links-a">
+                <li class="li-creators-links">@nika_sirenn</li>
+              </a>
+              <a href="https://t.me/Zhanna_Ivaa" class="creators-links-a">
+                <li class="li-creators-links">@Zhanna_Ivaa</li>
+              </a>
+              <a href="https://t.me/belka_i" class="creators-links-a">
+                <li class="li-creators-links">@belka_i</li>
+              </a>
+              <a href="https://t.me/Ninimark1218" class="creators-links-a">
+                <li class="li-creators-links">@Ninimark1218</li>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-  <script src="./index.js"></script>
-</body>
+    <script src="./index.js"></script>
+  </body>
 </html>

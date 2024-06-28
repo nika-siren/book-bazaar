@@ -1,0 +1,131 @@
+@import 'patterns.scss';
+@import 'variables.scss';
+
+.footer__main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: $dark-color;
+
+    //min 30px max 60px
+    padding: clamp(1.875rem, 0.536rem + 3.571vw, 3.75rem);
+}
+
+.footer__nav {
+    display: flex;
+    flex-direction: row;
+    //min 30px max 60px
+    padding: clamp(1.875rem, 0.536rem + 3.571vw, 3.75rem);
+
+    //min 30px max 90px
+    gap: clamp(1.875rem, -0.804rem + 7.143vw, 5.625rem);
+}
+
+.footer__nav-list {
+    //min 30px max 50px
+    line-height: clamp(1.875rem, 0.982rem + 2.381vw, 3.125rem);
+}
+
+.footer__list-items {
+    list-style-type: none;
+
+    //min 30px max 50px
+    line-height: clamp(1.875rem, 0.982rem + 2.381vw, 3.125rem);
+}
+
+.footer__list-items:before {
+    content: "» ";
+}
+
+.footer__nav-h2 {
+    font-weight: normal;
+    //min 15px max 30px
+    padding-bottom: clamp(0.938rem, 0.268rem + 1.786vw, 1.875rem);
+}
+
+.about__BookBazaare {
+    display: flex;
+    flex-direction: column;
+    //min 30px max 50px
+    gap: clamp(1.875rem, 0.982rem + 2.381vw, 3.125rem);
+    background-color: $light-color-transparent;
+    //min 30px max 60px
+    padding: clamp(1.875rem, 0.536rem + 3.571vw, 3.75rem);
+    //min 265px max 465px
+    max-width: clamp(16.563rem, 7.634rem + 23.81vw, 29.063rem);
+}
+
+.about__BookBazaare__title,
+.footer__nav-h2 {
+    @extend %primary-font;
+    color: white;
+    //min 20px max 28px
+    font-size: clamp(1.25rem, 0.893rem + 0.952vw, 1.75rem);
+}
+
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts {
+    @extend %secondary-font;
+    color: white;
+    //min 13px max 16px
+    font-size: clamp(0.813rem, 0.679rem + 0.357vw, 1rem);
+}
+
+.about__BookBazaare-text {
+    //min 95px max 295px
+    max-width: clamp(5.938rem, -2.991rem + 23.81vw, 18.438rem);
+}
+
+.about__BookBazaare__title {
+    //min 25px max 35px
+    font-size: clamp(1.563rem, 1.116rem + 1.19vw, 2.188rem);
+    cursor: pointer;
+}
+
+.footer-logo {
+    color: black;
+    font-style: italic;
+}
+
+.creators {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    background-color: $darkest-color;
+
+    //min 20px max 40px
+    padding: clamp(1.25rem, 0.357rem + 2.381vw, 2.5rem);
+    //min 10px max 20px
+    gap: clamp(0.625rem, 0.179rem + 1.19vw, 1.25rem);
+}
+
+.creators_text {
+    padding-bottom: 10px;
+}
+
+.creators-links {
+    display: flex;
+    justify-content: center;
+    //min 15px max 25px
+    line-height: clamp(0.938rem, 0.491rem + 1.19vw, 1.563rem)x;
+}
+
+.creator-link,
+.creators-links-a {
+    color: $light-color;
+    text-decoration: none;
+}
+
+.li-creators-links {
+    list-style-type: none;
+}
+
+@media screen and (max-width: 730px) {
+    .footer__nav {
+        flex-wrap: wrap;
+    }
+}

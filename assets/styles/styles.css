@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "PlayfairDisplay";
   src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
@@ -6,12 +7,16 @@
   font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf") format("truetype");
 }
-.error-request, .header-wrapper__title {
+.about__BookBazaare__title,
+.footer__nav-h2, .error-request, .header-wrapper__title {
   font-family: "PlayfairDisplay", Times, sans-serif;
   font-size: 48px;
 }
 
-.card, .header-wrapper__nav-items {
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts, .card, .header-wrapper__nav-items {
   font-family: "Roboto", Times, sans-serif;
   font-size: 16px;
 }
@@ -77,12 +82,16 @@ header {
   font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf") format("truetype");
 }
-.error-request, .header-wrapper__title {
+.about__BookBazaare__title,
+.footer__nav-h2, .error-request, .header-wrapper__title {
   font-family: "PlayfairDisplay", Times, sans-serif;
   font-size: 48px;
 }
 
-.card, .header-wrapper__nav-items {
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts, .card, .header-wrapper__nav-items {
   font-family: "Roboto", Times, sans-serif;
   font-size: 16px;
 }
@@ -173,6 +182,133 @@ main {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+}
+.about__BookBazaare__title,
+.footer__nav-h2, .header-wrapper__title, .error-request {
+  font-family: "PlayfairDisplay", Times, sans-serif;
+  font-size: 48px;
+}
+
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts, .header-wrapper__nav-items, .card {
+  font-family: "Roboto", Times, sans-serif;
+  font-size: 16px;
+}
+
+.footer__main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #177165;
+  padding: clamp(1.875rem, 0.536rem + 3.571vw, 3.75rem);
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: row;
+  padding: clamp(1.875rem, 0.536rem + 3.571vw, 3.75rem);
+  gap: clamp(1.875rem, -0.804rem + 7.143vw, 5.625rem);
+}
+
+.footer__nav-list {
+  line-height: clamp(1.875rem, 0.982rem + 2.381vw, 3.125rem);
+}
+
+.footer__list-items {
+  list-style-type: none;
+  line-height: clamp(1.875rem, 0.982rem + 2.381vw, 3.125rem);
+}
+
+.footer__list-items:before {
+  content: "» ";
+}
+
+.footer__nav-h2 {
+  font-weight: normal;
+  padding-bottom: clamp(0.938rem, 0.268rem + 1.786vw, 1.875rem);
+}
+
+.about__BookBazaare {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.875rem, 0.982rem + 2.381vw, 3.125rem);
+  background-color: rgba(164, 214, 207, 0.3);
+  padding: clamp(1.875rem, 0.536rem + 3.571vw, 3.75rem);
+  max-width: clamp(16.563rem, 7.634rem + 23.81vw, 29.063rem);
+}
+
+.about__BookBazaare__title,
+.footer__nav-h2 {
+  color: white;
+  font-size: clamp(1.25rem, 0.893rem + 0.952vw, 1.75rem);
+}
+
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts {
+  color: white;
+  font-size: clamp(0.813rem, 0.679rem + 0.357vw, 1rem);
+}
+
+.about__BookBazaare-text {
+  max-width: clamp(5.938rem, -2.991rem + 23.81vw, 18.438rem);
+}
+
+.about__BookBazaare__title {
+  font-size: clamp(1.563rem, 1.116rem + 1.19vw, 2.188rem);
+  cursor: pointer;
+}
+
+.footer-logo {
+  color: black;
+  font-style: italic;
+}
+
+.creators {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: #0A312C;
+  padding: clamp(1.25rem, 0.357rem + 2.381vw, 2.5rem);
+  gap: clamp(0.625rem, 0.179rem + 1.19vw, 1.25rem);
+}
+
+.creators_text {
+  padding-bottom: 10px;
+}
+
+.creators-links {
+  display: flex;
+  justify-content: center;
+  line-height: clamp(0.938rem, 0.491rem + 1.19vw, 1.563rem) x;
+}
+
+.creator-link,
+.creators-links-a {
+  color: #A4D6CF;
+  text-decoration: none;
+}
+
+.li-creators-links {
+  list-style-type: none;
+}
+
+@media screen and (max-width: 730px) {
+  .footer__nav {
+    flex-wrap: wrap;
   }
 }
 /*sass --watch assets/scss/index.scss assets/styles/styles.css*/
