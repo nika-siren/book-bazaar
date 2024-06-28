@@ -27,7 +27,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   width: 1320px;
 }
 
@@ -59,9 +59,10 @@ header {
 }
 
 #user-input {
-  padding: 5px 10px;
+  padding: 5px;
   border-radius: 50px;
-  width: 180px;
+  width: 220px;
+  margin: 20px 0;
 }
 
 .btn-search {
@@ -155,8 +156,8 @@ main {
 }
 
 .loader {
-  border: 20px solid rgba(164, 214, 207, 0.3);
-  border-top: 20px solid #A4D6CF;
+  border: 16px solid rgba(164, 214, 207, 0.3);
+  border-top: 16px solid #A4D6CF;
   border-radius: 50%;
   width: 100px;
   height: 100px;
@@ -214,12 +215,72 @@ main {
     gap: 30px;
   }
   #user-input {
-    width: 17vw;
+    width: 20vw;
+    padding: 3px 10px;
     font-size: 1.5vw;
   }
   .btn-search {
-    padding: 3px 12px;
+    padding: 3px 10px;
+    font-size: 1.5vw;
+  }
+  main {
+    margin-top: 20px;
+  }
+  .cards {
+    gap: 10px;
+  }
+  .card {
+    font-family: "Roboto", Times, sans-serif;
     font-size: 1.6vw;
+  }
+  .img-poster {
+    width: 14vw;
+  }
+  .book-price {
+    margin: 10px 0 8px 0;
+  }
+  .loader {
+    width: 80px;
+    height: 80px;
+    left: 45%;
+  }
+}
+@media screen and (max-width: 633px) {
+  .header-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  .header-wrapper__nav-items {
+    gap: 20px;
+    margin: 12px 0 18px 0;
+  }
+  #user-input {
+    margin: 0;
+    width: 50vw;
+  }
+  main {
+    margin-top: 20px;
+  }
+  .cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .card {
+    font-family: "Roboto", Times, sans-serif;
+    font-size: 1.6vw;
+    font-size: 2.6vw;
+  }
+  .img-poster {
+    width: 20vw;
+  }
+  .book-price {
+    margin: 10px 0 8px 0;
+  }
+  .loader {
+    width: 80px;
+    height: 80px;
+    left: 38%;
   }
 }
 
