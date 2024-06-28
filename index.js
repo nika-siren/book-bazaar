@@ -112,90 +112,91 @@ headerTitle.addEventListener('click', function() {
 
 // Recomendations
 document.addEventListener('DOMContentLoaded', function () {
-    const recommendationsApiUrl = 'https://www.googleapis.com/books/v1/volumes?q=subject:fiction';
-    const discountsApiUrl = 'https://www.googleapis.com/books/v1/volumes?q=subject:discounts';
-  
-    const fetchBooks = (url, carouselId) => {
+  const recommendationsApiUrl = 'https://www.googleapis.com/books/v1/volumes?q=subject:fiction';
+  const discountsApiUrl = 'https://www.googleapis.com/books/v1/volumes?q=subject:fiction';
+
+  const fetchBooks = (url, carouselId) => {
       fetch(url)
-        .then(response => response.json())
-        .then(data => {
+      .then(response => response.json())
+      .then(data => {
           const carousel = document.getElementById(carouselId);
           const booksHtml = data.items.map(item => {
-            const book = item.volumeInfo;
-            const coverImage = book.imageLinks ? book.imageLinks.thumbnail : 'https://via.placeholder.com/128x192.png?text=No+Image';
-            return `
-              <div class="carousel-item" data-id="${item.id}">
-                <img src="${coverImage}" alt="${book.title}">
-                <div class="book-info">
-                  <h5>${book.title}</h5>
-                  <p>${book.authors ? book.authors.join(', ') : 'Unknown Author'}</p>
-                </div>
-              </div>
-            `;
+              const book = item.volumeInfo;
+              const coverImage = book.imageLinks ? book.imageLinks.thumbnail : 'https://via.placeholder.com/128x192.png?text=No+Image';
+              return `
+                  <div class="carousel-item" data-id="${item.id}" data-carousel="${carouselId}">
+                      <img src="${coverImage}" alt="${book.title}">
+                      <div class="book-info">
+                          <h5>${book.title}</h5>
+                          <p>${book.authors ? book.authors.join(', ') : 'Unknown Author'}</p>
+                      </div>
+                  </div>
+              `;
           }).join('');
           carousel.innerHTML = booksHtml;
-  
-          // Add click event to each book item
-          const items = carousel.querySelectorAll('.carousel-item');
-          items.forEach(item => {
-            item.addEventListener('click', () => showBookDetails(item.dataset.id, data.items, carouselId));
+          addCarouselEventListeners(carouselId); // Adding event listeners after the books are loaded
+      })
+      .catch(error => console.error('Error fetching books:', error));
+  };
+
+  const addCarouselEventListeners = (carouselId) => {
+      const carousel = document.getElementById(carouselId);
+      carousel.querySelectorAll('.carousel-item').forEach(item => {
+          item.addEventListener('click', () => {
+              showBookDetails(item.dataset.id, carouselId); // Passing carouselId to showBookDetails
           });
-        })
-        .catch(error => console.error('Error fetching books:', error));
-    };
-  
-    const showBookDetails = (id, books, carouselId) => {
-      const book = books.find(item => item.id === id).volumeInfo;
-      const bookDetailsHtml = `
-        <div class="book-details">
-          <img src="${book.imageLinks ? book.imageLinks.thumbnail : 'https://via.placeholder.com/128x192.png?text=No+Image'}" alt="${book.title}">
-          <div class="info">
-            <h2>${book.title}</h2>
-            <p>Автор: ${book.authors ? book.authors.join(', ') : 'Unknown Author'}</p>
-            <p>Описание: ${book.description || 'Описание недоступно'}</p>
-            <button class="btn-add-to-cart">В корзину</button>
-          </div>
-        </div>
-      `;
-      
-      // Determine the container for displaying the book details based on the carousel ID
-      let container;
-      if (carouselId === 'bookCarousel') {
-        container = document.querySelector('.recommendations .container');
-      } else {
-        container = document.querySelector('.discount .container');
-      }
-      
-      container.innerHTML = bookDetailsHtml;
-  
-      // Add to cart button functionality
-      const addToCartBtn = document.querySelector('.btn-add-to-cart');
-      addToCartBtn.addEventListener('click', () => {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.push(book);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        alert('Книга добавлена в корзину');
       });
-    };
-  
-    fetchBooks(recommendationsApiUrl, 'bookCarousel');
-    fetchBooks(discountsApiUrl, 'discountCarousel');
-  
-    const setupCarouselControls = (prevBtnId, nextBtnId, carouselId) => {
+  };
+
+  const showBookDetails = (bookId, carouselId) => {
+      const url = `https://www.googleapis.com/books/v1/volumes/${bookId}`;
+      fetch(url)
+          .then(response => response.json())
+          .then(data => {
+              const book = data.volumeInfo;
+              const coverImage = book.imageLinks ? book.imageLinks.thumbnail : 'https://via.placeholder.com/128x192.png?text=No+Image';
+              const bookDetailsHtml = `
+                  <div class="book-details">
+                      <img src="${coverImage}" alt="${book.title}">
+                      <div class="info">
+                          <h2>${book.title}</h2>
+                          <p>${book.authors ? book.authors.join(', ') : 'Unknown Author'}</p>
+                          <p>${book.description}</p>
+                          <button onclick="addToCart('${bookId}')">В корзину</button>
+                      </div>
+                  </div>
+              `;
+              const detailsContainer = document.createElement('div');
+              detailsContainer.innerHTML = bookDetailsHtml;
+              const carouselContainer = document.getElementById(carouselId).parentElement;
+              carouselContainer.innerHTML = ''; // Clear the carousel
+              carouselContainer.appendChild(detailsContainer); // Display the book details
+          })
+          .catch(error => console.error('Error fetching book details:', error));
+  };
+
+  const addToCart = (bookId) => {
+      // Logic to add the book to the cart and store in local storage
+      console.log(`Adding book with ID ${bookId} to cart`);
+  };
+
+  const setupCarouselControls = (prevBtnId, nextBtnId, carouselId) => {
       const prevBtn = document.getElementById(prevBtnId);
       const nextBtn = document.getElementById(nextBtnId);
       const carousel = document.getElementById(carouselId);
   
       prevBtn.addEventListener('click', () => {
-        carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
+          carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
       });
   
       nextBtn.addEventListener('click', () => {
-        carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
+          carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
       });
-    };
+  };
+
+  fetchBooks(recommendationsApiUrl, 'bookCarousel');
+  fetchBooks(discountsApiUrl, 'discountCarousel');
   
-    setupCarouselControls('prevBtn', 'nextBtn', 'bookCarousel');
-    setupCarouselControls('discountPrevBtn', 'discountNextBtn', 'discountCarousel');
-  });
-  
+  setupCarouselControls('prevBtn', 'nextBtn', 'bookCarousel');
+  setupCarouselControls('discountPrevBtn', 'discountNextBtn', 'discountCarousel');
+});
