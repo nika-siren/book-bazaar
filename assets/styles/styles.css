@@ -168,6 +168,7 @@ main {
 }
 
 .recommendations .container,
+.new .container,
 .discount .container {
   margin-left: 20px;
   margin-right: 20px;
@@ -175,12 +176,14 @@ main {
 }
 
 .recommendations .container .carousel-container,
+.new .container .carousel-container,
 .discount .container .carousel-container {
   display: flex;
   align-items: center;
 }
 
 .recommendations .container .carousel-container .carousel,
+.new .container .carousel-container .carousel,
 .discount .container .carousel-container .carousel {
   display: flex;
   overflow: hidden;
@@ -189,6 +192,7 @@ main {
 }
 
 .recommendations .container .carousel-container .carousel .carousel-item,
+.new .container .carousel-container .carousel .carousel-item,
 .discount .container .carousel-container .carousel .carousel-item {
   flex: 0 0 33.333%;
   scroll-snap-align: center;
@@ -200,23 +204,27 @@ main {
 }
 
 .recommendations .container .carousel-container .carousel .carousel-item img,
+.new .container .carousel-container .carousel .carousel-item img,
 .discount .container .carousel-container .carousel .carousel-item img {
   max-width: 100%;
   height: auto;
 }
 
 .recommendations .container .carousel-container .carousel .carousel-item .book-info,
+.new .container .carousel-container .carousel .carousel-item .book-info,
 .discount .container .carousel-container .carousel .carousel-item .book-info {
   text-align: center;
 }
 
 .recommendations .container .carousel-container .carousel p,
+.new .container .carousel-container .carousel p,
 .discount .container .carousel-container .carousel p {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: large;
 }
 
 .recommendations .container .carousel-container h1,
+.new .container .carousel-container h1,
 .discount .container .carousel-container h1 {
   margin-left: 20px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -225,6 +233,8 @@ main {
 
 .recommendations .container .carousel-container .carousel-control-prev,
 .recommendations .container .carousel-container .carousel-control-next,
+.new .container .carousel-container .carousel-control-prev,
+.new .container .carousel-container .carousel-control-next,
 .discount .container .carousel-container .carousel-control-prev,
 .discount .container .carousel-container .carousel-control-next {
   background: none;
@@ -236,6 +246,8 @@ main {
 
 .recommendations .container .carousel-container .carousel-control-prev img,
 .recommendations .container .carousel-container .carousel-control-next img,
+.new .container .carousel-container .carousel-control-prev img,
+.new .container .carousel-container .carousel-control-next img,
 .discount .container .carousel-container .carousel-control-prev img,
 .discount .container .carousel-container .carousel-control-next img {
   width: 50px;
