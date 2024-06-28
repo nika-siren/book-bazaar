@@ -3,10 +3,25 @@
 // Шаблоны со шрифтами
 %primary-font {
   font-family: 'PlayfairDisplay', Times, sans-serif;
-  font-size: 48px;
+  font-size: 38px; //тут изменила 48px на 38px
 }
+
+@mixin primary-font-smaller {
+  font-family: 'PlayfairDisplay', Times, sans-serif;
+  font-size: calc(1rem + 2vw);
+}
+
 %secondary-font {
   font-family: 'Roboto', Times, sans-serif;
   font-size: 16px;
 }
 
+@mixin secondary-font-smaller {
+  font-family: 'Roboto', Times, sans-serif;
+  font-size: 1.4vw;
+}
+
+@mixin secondary-font-smaller-main {
+  font-family: 'Roboto', Times, sans-serif;
+  font-size: 1.6vw;
+}

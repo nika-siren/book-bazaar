@@ -2,6 +2,8 @@
 @import 'main.scss';
 @import 'loader.scss';
 
+@import 'patterns.scss';
+
 //Запуск препроцессора
 /*sass --watch assets/scss/index.scss assets/styles/styles.css*/
 
@@ -9,4 +11,95 @@
 * {
   margin: 0;
   padding: 0;
+}
+
+
+/*Медиа-запросы*/
+@media screen and (min-width: 634px) and (max-width: 992px) {
+  //Блок header
+  .header-wrapper__title, .header-logo {
+    @include primary-font-smaller;
+  }
+  .header-wrapper__nav-items {
+    @include secondary-font-smaller;
+  }
+  .header-wrapper__nav-items {
+    gap: 30px;
+  }
+  #user-input {
+    width: 20vw;
+    padding: 3px 10px;
+    font-size: 1.5vw;
+  }
+  .btn-search {
+    padding: 3px 10px;
+    font-size: 1.5vw;
+  }
+  //Блок main
+  main {
+    margin-top: 20px;
+  }
+  .cards {
+    gap: 10px;
+  }
+  .card {
+    @include secondary-font-smaller-main;
+  }
+  .img-poster {
+    width: 14vw;
+  }
+  .book-price {
+    margin: 10px 0 8px 0;
+  }
+
+  //Loader
+  .loader {
+    width: 80px;
+    height: 80px;
+    left: 45%;
+  }
+}
+
+
+@media screen and (max-width: 633px) {
+  //Блок header
+  .header-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  .header-wrapper__nav-items {
+    gap: 20px;
+    margin: 12px 0 18px 0;
+  }
+  #user-input {
+    margin: 0;
+    width: 50vw;
+  }
+
+  //Блок main
+  main {
+    margin-top: 20px;
+  }
+  .cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .card {
+    @include secondary-font-smaller-main;
+    font-size: 2.6vw;
+  }
+  .img-poster {
+    width: 20vw;
+  }
+  .book-price {
+    margin: 10px 0 8px 0;
+  }
+
+  //Блок loader
+  .loader {
+    width: 80px;
+    height: 80px;
+    left: 38%;
+  }
 }
