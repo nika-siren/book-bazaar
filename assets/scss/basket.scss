@@ -1,0 +1,75 @@
+@import 'patterns.scss';
+@import 'variables.scss';
+
+//ЭТОТ БЛОК НЕВИДИМ ДО ПЕРЕХОДА НА ВКЛАДКУ 'КОРЗИНА'
+.basket {
+  display: flex;
+  justify-content: center;
+  background-color: $light-color-transparent;
+}
+
+.basket-hidden {
+  display: none;
+}
+
+.basket-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 1120px;
+  margin-top: 50px;
+}
+
+.basket-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px
+}
+
+.basket-container__title {
+  @extend %primary-font;
+}
+
+.basket-container__pay {
+  @extend %secondary-font;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.basket-container__pay-sum {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.btn-pay {
+  margin: 0 50px;
+  padding: 5px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: $dark-color;
+  color: white;
+}
+
+.basket-card {
+  @extend %secondary-font;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  background-color: white;
+}
+
+.basket-poster {
+  width: 80px;
+}
+
+.basket-info {
+  width: 300px;
+  margin: 0 40% 0 8%;
+}
+
+.basket-price {
+  font-size: larger;
+  font-weight: bold;
+}

@@ -1,7 +1,7 @@
 @import 'patterns.scss';
 @import 'variables.scss';
 
-//ЭТОТ БЛОК НЕВИДЕМ ДО ПРИМЕНЕНИЯ ФИЛЬТРА ПОИСКА
+//ЭТОТ БЛОК НЕВИДИМ ДО ПРИМЕНЕНИЯ ФИЛЬТРА ПОИСКА
 main {
   display: flex;
   justify-content: center;
@@ -62,6 +62,7 @@ main {
 .error-request {
   @extend %primary-font;
   margin-top: 10%;
+  padding: 20px;
   font-weight: bold;
   position: absolute;
 }

@@ -7,12 +7,12 @@
   font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf") format("truetype");
 }
-.error-request, .header-wrapper__title {
+.basket-container__title, .error-request, .header-wrapper__title {
   font-family: "PlayfairDisplay", Times, sans-serif;
   font-size: 38px;
 }
 
-.card, .header-wrapper__nav-items {
+.basket-card, .basket-container__pay, .card, .header-wrapper__nav-items {
   font-family: "Roboto", Times, sans-serif;
   font-size: 16px;
 }
@@ -29,6 +29,7 @@ header {
   align-items: center;
   padding: 10px;
   width: 1320px;
+  border: 1px solid red;
 }
 
 .header-wrapper__title {
@@ -43,7 +44,7 @@ header {
 
 .header-wrapper__nav-items {
   display: flex;
-  gap: 60px;
+  gap: 40px;
   margin-top: 5px;
   list-style: none;
   margin: 0 20px;
@@ -54,8 +55,12 @@ header {
   color: #A4D6CF;
 }
 
-.item-contacts {
+.item-basket {
   color: white;
+}
+
+.header-wrapper__search {
+  border: 1px solid red;
 }
 
 #user-input {
@@ -71,6 +76,10 @@ header {
   cursor: pointer;
 }
 
+/*.header-wrapper__basket {
+  width: 40px;
+  border: 1px solid red;
+}*/
 @font-face {
   font-family: "PlayfairDisplay";
   src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
@@ -79,12 +88,12 @@ header {
   font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf") format("truetype");
 }
-.error-request, .header-wrapper__title {
+.basket-container__title, .error-request, .header-wrapper__title {
   font-family: "PlayfairDisplay", Times, sans-serif;
   font-size: 38px;
 }
 
-.card, .header-wrapper__nav-items {
+.basket-card, .basket-container__pay, .card, .header-wrapper__nav-items {
   font-family: "Roboto", Times, sans-serif;
   font-size: 16px;
 }
@@ -147,6 +156,7 @@ main {
 
 .error-request {
   margin-top: 10%;
+  padding: 20px;
   font-weight: bold;
   position: absolute;
 }
@@ -185,12 +195,96 @@ main {
   font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf") format("truetype");
 }
-.header-wrapper__title, .error-request {
+.basket-container__title, .header-wrapper__title, .error-request {
   font-family: "PlayfairDisplay", Times, sans-serif;
   font-size: 38px;
 }
 
-.header-wrapper__nav-items, .card {
+.basket-card, .basket-container__pay, .header-wrapper__nav-items, .card {
+  font-family: "Roboto", Times, sans-serif;
+  font-size: 16px;
+}
+
+.basket {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(164, 214, 207, 0.3);
+}
+
+.basket-hidden {
+  display: none;
+}
+
+.basket-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 1120px;
+  margin-top: 50px;
+}
+
+.basket-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.basket-container__pay {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.basket-container__pay-sum {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.btn-pay {
+  margin: 0 50px;
+  padding: 5px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: #177165;
+  color: white;
+}
+
+.basket-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  background-color: white;
+}
+
+.basket-poster {
+  width: 80px;
+}
+
+.basket-info {
+  width: 300px;
+  margin: 0 40% 0 8%;
+}
+
+.basket-price {
+  font-size: larger;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+}
+.header-wrapper__title, .error-request, .basket-container__title {
+  font-family: "PlayfairDisplay", Times, sans-serif;
+  font-size: 38px;
+}
+
+.header-wrapper__nav-items, .card, .basket-container__pay, .basket-card {
   font-family: "Roboto", Times, sans-serif;
   font-size: 16px;
 }
@@ -201,6 +295,9 @@ main {
   padding: 0;
 }
 
+/*.highlight {
+  font-weight: bold;
+}*/
 /*Медиа-запросы*/
 @media screen and (min-width: 634px) and (max-width: 992px) {
   .header-wrapper__title, .header-logo {

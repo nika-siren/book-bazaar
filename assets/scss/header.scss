@@ -13,6 +13,7 @@ header {
   align-items: center;
   padding: 10px;
   width: 1320px;
+  border: 1px solid red;
 }
 
 .header-wrapper__title {
@@ -29,7 +30,7 @@ header {
 .header-wrapper__nav-items {
   @extend %secondary-font;
   display: flex;
-  gap: 60px;
+  gap: 40px;
   margin-top: 5px;
   list-style: none;
   margin: 0 20px;
@@ -40,8 +41,13 @@ header {
   color: $light-color;
 }
 
-.item-contacts {
+.item-basket {
   color: white;
+}
+
+.header-wrapper__search {
+  border: 1px solid red;
+  //display: flex;
 }
 
 #user-input {
@@ -56,3 +62,8 @@ header {
   border-radius: 50px;
   cursor: pointer;
 }
+
+/*.header-wrapper__basket {
+  width: 40px;
+  border: 1px solid red;
+}*/

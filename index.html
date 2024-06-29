@@ -13,15 +13,17 @@
       <div class="header-wrapper__title">Book<span class="header-logo">Bazaar</span></div>
       <nav class="header-wrapper__nav">
         <ul class="header-wrapper__nav-items">
-          <li class="nav-item"><a href="#"></a>Новинки</li>
+          <!--<li class="nav-item"><a href="#"></a>Новинки</li>-->
           <li class="nav-item"><a href="#"></a>Рекомендации</li>
           <li class="nav-item item-contacts"><a href="#"></a>Контакты</li>
+          <li class="nav-item item-basket">Корзина</li>
         </ul>
       </nav>
       <div class="header-wrapper__search">
         <label for="user-input"></label>
         <input type="text" id="user-input" placeholder="Введите фамилию автора">
         <button class="btn-search">Поиск</button>
+        <!--<img class="header-wrapper__basket" src="./assets/images/bag-1.svg" alt="img">-->
       </div>
     </div>
   </header>
@@ -30,6 +32,18 @@
     <div class="error-request error-request-hidden"></div>
   </main>
   <div class="loader loader-hidden"></div>
+  <div class="basket basket-hidden">
+    <div class="basket-wrapper">
+      <div class="basket-container">
+        <h1 class="basket-container__title">Корзина</h1>
+        <div class="basket-container__pay">
+          <p class="basket-container__pay-sum">Сумма к оплате <span class="total-sum">0</span> $</p>
+          <button class="btn-pay">Оплатить</button>
+        </div>
+      </div>  
+      <!--<div class="basket-card"></div>-->
+    </div>
+  </div>
 
   <script src="./index.js"></script>
 </body>

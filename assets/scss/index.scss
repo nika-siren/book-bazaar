@@ -1,6 +1,7 @@
 @import 'header.scss';
 @import 'main.scss';
 @import 'loader.scss';
+@import 'basket.scss';
 
 @import 'patterns.scss';
 
@@ -12,6 +13,10 @@
   margin: 0;
   padding: 0;
 }
+
+/*.highlight {
+  font-weight: bold;
+}*/
 
 
 /*Медиа-запросы*/
