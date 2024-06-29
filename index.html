@@ -17,9 +17,10 @@
       </div>
       <nav class="header-wrapper__nav">
         <ul class="header-wrapper__nav-items">
-          <li class="nav-item"><a href="#new"></a>Новинки</li>
-          <li class="nav-item"><a href="#"></a>Рекомендации</li>
-          <li class="nav-item item-contacts"><a href="#"></a>Контакты</li>
+          <li><a href="#new" class="nav-item">Новинки</a></li>
+          <li><a href="#recommendation-link" class="nav-item">Рекомендации</a></li>
+          <li><a href="#footer-link" class="nav-item">Контакты</a></li>
+          <li class="nav-item item-basket">Корзина</li>
         </ul>
       </nav>
       <div class="header-wrapper__search">
@@ -34,7 +35,19 @@
     <div class="error-request error-request-hidden"></div>
   </main>
   <div class="loader loader-hidden"></div>
-  <div class="recommendations">
+  <div class="basket basket-hidden">
+    <div class="basket-wrapper">
+      <div class="basket-container">
+        <h1 class="basket-container__title">Корзина</h1>
+        <div class="basket-container__pay">
+          <p class="basket-container__pay-sum">Сумма к оплате <span class="total-sum">0</span> $</p>
+          <button class="btn-pay">Оплатить</button>
+        </div>
+      </div>  
+      <!--<div class="basket-card"></div>-->
+    </div>
+  </div>
+  <div class="recommendations" id="recommendation-link">
     <div class="container mt-5">
       <h1>Что почитать: рекомендации</h1>
       <div class="carousel-container">
@@ -87,7 +100,7 @@
     </div>
   </div>
 
-  <footer>
+  <footer id="footer-link">
     <div class="footer__main">
       <div class="footer__nav">
         <div class="footer__nav-item">

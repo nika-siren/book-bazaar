@@ -1,23 +1,22 @@
 @charset "UTF-8";
-
 @font-face {
   font-family: "PlayfairDisplay";
   src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
 }
-
 @font-face {
   font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf") format("truetype");
 }
-
-.error-request,
-.header-wrapper__title {
+.about__BookBazaare__title,
+.footer__nav-h2, .basket-container__title, .error-request, .header-wrapper__title {
   font-family: "PlayfairDisplay", Times, sans-serif;
   font-size: 38px;
 }
 
-.card,
-.header-wrapper__nav-items {
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts, .basket-card, .basket-container__pay, .card, .header-wrapper__nav-items {
   font-family: "Roboto", Times, sans-serif;
   font-size: 16px;
 }
@@ -48,18 +47,18 @@ header {
 
 .header-wrapper__nav-items {
   display: flex;
-  gap: 60px;
+  gap: 40px;
   margin-top: 5px;
   list-style: none;
   margin: 0 20px;
 }
 
 .nav-item {
-  cursor: pointer;
+  text-decoration: none;
   color: #A4D6CF;
 }
 
-.item-contacts {
+.item-basket {
   color: white;
 }
 
@@ -76,15 +75,36 @@ header {
   cursor: pointer;
 }
 
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+}
+.about__BookBazaare__title,
+.footer__nav-h2, .basket-container__title, .error-request, .header-wrapper__title {
+  font-family: "PlayfairDisplay", Times, sans-serif;
+  font-size: 38px;
+}
+
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts, .basket-card, .basket-container__pay, .card, .header-wrapper__nav-items {
+  font-family: "Roboto", Times, sans-serif;
+  font-size: 16px;
+}
+
 main {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin: 50px 0;
   position: relative;
 }
 
-.main-hidden,
-.error-request-hidden {
+.main-hidden, .error-request-hidden, .hidden {
   display: none;
 }
 
@@ -135,6 +155,7 @@ main {
 
 .error-request {
   margin-top: 10%;
+  padding: 20px;
   font-weight: bold;
   position: absolute;
 }
@@ -161,12 +182,10 @@ main {
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
 }
-
 .recommendations .container,
 .new .container,
 .discount .container {
@@ -174,14 +193,12 @@ main {
   margin-right: 20px;
   background-color: rgb(138, 192, 138);
 }
-
 .recommendations .container .carousel-container,
 .new .container .carousel-container,
 .discount .container .carousel-container {
   display: flex;
   align-items: center;
 }
-
 .recommendations .container .carousel-container .carousel,
 .new .container .carousel-container .carousel,
 .discount .container .carousel-container .carousel {
@@ -190,7 +207,6 @@ main {
   width: 100%;
   scroll-snap-type: x mandatory;
 }
-
 .recommendations .container .carousel-container .carousel .carousel-item,
 .new .container .carousel-container .carousel .carousel-item,
 .discount .container .carousel-container .carousel .carousel-item {
@@ -202,27 +218,23 @@ main {
   padding: 10px;
   box-sizing: border-box;
 }
-
 .recommendations .container .carousel-container .carousel .carousel-item img,
 .new .container .carousel-container .carousel .carousel-item img,
 .discount .container .carousel-container .carousel .carousel-item img {
   max-width: 100%;
   height: auto;
 }
-
 .recommendations .container .carousel-container .carousel .carousel-item .book-info,
 .new .container .carousel-container .carousel .carousel-item .book-info,
 .discount .container .carousel-container .carousel .carousel-item .book-info {
   text-align: center;
 }
-
 .recommendations .container .carousel-container .carousel p,
 .new .container .carousel-container .carousel p,
 .discount .container .carousel-container .carousel p {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: large;
 }
-
 .recommendations .container .carousel-container h1,
 .new .container .carousel-container h1,
 .discount .container .carousel-container h1 {
@@ -230,7 +242,6 @@ main {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: rgb(44, 70, 61);
 }
-
 .recommendations .container .carousel-container .carousel-control-prev,
 .recommendations .container .carousel-container .carousel-control-next,
 .new .container .carousel-container .carousel-control-prev,
@@ -243,7 +254,6 @@ main {
   cursor: pointer;
   padding: 0;
 }
-
 .recommendations .container .carousel-container .carousel-control-prev img,
 .recommendations .container .carousel-container .carousel-control-next img,
 .new .container .carousel-container .carousel-control-prev img,
@@ -270,28 +280,23 @@ main {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .book-details img {
   max-width: 200px;
   height: auto;
   margin-right: 20px;
 }
-
 .book-details .info {
   display: flex;
   flex-direction: column;
 }
-
 .book-details h2 {
   margin: 0 0 10px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-
 .book-details p {
   margin: 0 0 10px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-
 .book-details button {
   background-color: #007bff;
   color: #fff;
@@ -301,6 +306,138 @@ main {
   font-size: 1em;
   border-radius: 4px;
   margin-top: auto;
+}
+
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+}
+.about__BookBazaare__title,
+.footer__nav-h2, .basket-container__title, .header-wrapper__title, .error-request {
+  font-family: "PlayfairDisplay", Times, sans-serif;
+  font-size: 38px;
+}
+
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts, .basket-card, .basket-container__pay, .header-wrapper__nav-items, .card {
+  font-family: "Roboto", Times, sans-serif;
+  font-size: 16px;
+}
+
+.basket {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(164, 214, 207, 0.3);
+}
+
+.basket-hidden {
+  display: none;
+}
+
+.basket-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 1120px;
+  margin: 50px 0;
+}
+
+.basket-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.basket-container__pay {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.basket-container__pay-sum {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.btn-pay {
+  margin: 0 50px;
+  padding: 5px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: #177165;
+  color: white;
+}
+
+.basket-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  background-color: white;
+}
+
+.basket-poster {
+  width: 80px;
+}
+
+.basket-info {
+  width: 300px;
+  margin: 0 40% 0 8%;
+}
+
+.basket-price {
+  font-size: larger;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+}
+.about__BookBazaare__title,
+.footer__nav-h2, .header-wrapper__title, .error-request, .basket-container__title {
+  font-family: "PlayfairDisplay", Times, sans-serif;
+  font-size: 38px;
+}
+
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts, .header-wrapper__nav-items, .card, .basket-container__pay, .basket-card {
+  font-family: "Roboto", Times, sans-serif;
+  font-size: 16px;
+}
+
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+}
+.about__BookBazaare__title,
+.footer__nav-h2, .header-wrapper__title, .error-request, .basket-container__title {
+  font-family: "PlayfairDisplay", Times, sans-serif;
+  font-size: 38px;
+}
+
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts, .header-wrapper__nav-items, .card, .basket-container__pay, .basket-card {
+  font-family: "Roboto", Times, sans-serif;
+  font-size: 16px;
 }
 
 .footer__main {
@@ -347,7 +484,6 @@ main {
 
 .about__BookBazaare__title,
 .footer__nav-h2 {
-  font-family: "PlayfairDisplay", Times, sans-serif;
   color: white;
   font-size: clamp(1.25rem, 0.893rem + 0.952vw, 1.75rem);
 }
@@ -356,7 +492,6 @@ main {
 .about__BookBazaare-text,
 .creators,
 .creators-contacts {
-  font-family: "Roboto", Times, sans-serif;
   color: white;
   font-size: clamp(0.813rem, 0.679rem + 0.357vw, 1rem);
 }
@@ -410,7 +545,6 @@ main {
     flex-wrap: wrap;
   }
 }
-
 /*sass --watch assets/scss/index.scss assets/styles/styles.css*/
 * {
   margin: 0;
@@ -418,106 +552,122 @@ main {
 }
 
 /*Медиа-запросы*/
-@media screen and (min-width: 634px) and (max-width: 992px) {
-
+@media screen and (min-width: 993px) and (max-width: 1040px) {
+  .header-wrapper__nav-items {
+    gap: 2.6vw;
+  }
+}
+@media screen and (min-width: 690px) and (max-width: 992px) {
   .header-wrapper__title,
   .header-logo {
     font-family: "PlayfairDisplay", Times, sans-serif;
     font-size: calc(1rem + 2vw);
   }
-
   .header-wrapper__nav-items {
     font-family: "Roboto", Times, sans-serif;
     font-size: 1.4vw;
   }
-
   .header-wrapper__nav-items {
-    gap: 30px;
+    gap: 3vw;
   }
-
   #user-input {
     width: 20vw;
     padding: 3px 10px;
     font-size: 1.5vw;
   }
-
   .btn-search {
     padding: 3px 10px;
     font-size: 1.5vw;
   }
-
   main {
     margin-top: 20px;
   }
-
   .cards {
     gap: 10px;
   }
-
   .card {
     font-family: "Roboto", Times, sans-serif;
     font-size: 1.6vw;
   }
-
   .img-poster {
     width: 14vw;
   }
-
   .book-price {
     margin: 10px 0 8px 0;
   }
-
   .loader {
     width: 80px;
     height: 80px;
     left: 45%;
   }
+  .basket-price {
+    white-space: nowrap;
+  }
 }
-
-@media screen and (max-width: 633px) {
+@media screen and (max-width: 689px) {
   .header-wrapper {
     display: flex;
     flex-direction: column;
     align-items: start;
   }
-
   .header-wrapper__nav-items {
     gap: 20px;
     margin: 12px 0 18px 0;
   }
-
   #user-input {
     margin: 0;
     width: 50vw;
   }
-
   main {
     margin-top: 20px;
   }
-
   .cards {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
-
   .card {
-    font-family: "Roboto", Times, sans-serif;
-    font-size: 1.6vw;
     font-size: 2.6vw;
   }
-
   .img-poster {
     width: 20vw;
   }
-
   .book-price {
     margin: 10px 0 8px 0;
   }
-
   .loader {
     width: 80px;
     height: 80px;
     left: 38%;
+  }
+  .basket-info {
+    width: 200px;
+    margin: 0 20% 0 10%;
+  }
+  .basket-price {
+    white-space: nowrap;
+  }
+  .basket-card {
+    font-size: 14px;
+  }
+  .basket-poster {
+    width: 60px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .basket-wrapper {
+    margin: 0;
+  }
+  .basket-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  .btn-pay {
+    margin: 0 0 5px 0;
+    width: 100px;
+  }
+  .basket-container__pay {
+    font-size: 12px;
   }
 }
 

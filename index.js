@@ -4,14 +4,58 @@ const main = document.querySelector('main');
 const cards = document.querySelector('.cards');
 const errorRequest = document.querySelector('.error-request');
 const headerTitle = document.querySelector('.header-wrapper__title');
+const basket = document.querySelector('.basket');
+const recommendations = document.querySelector('.recommendations');
+const discount = document.querySelector('.discount');
+const newBooks = document.querySelector('.new');
+const footer = document.querySelector('footer');
 
 const patternUrl = /^https:\/\/covers\.openlibrary\.org\/b\/isbn\/([a-z0-9]+)-([A-Z])\.jpg/i;
 
 const max = 300;
 const min = 100;
 
-//Отображение html страницы
-async function displayBooks(title, author, publishYyear, publishPlace, urlPoster, price) {
+
+//Общая сумма к оплате
+const getTotalSum = (newPrice, oldPrice) => Number(newPrice) + Number(oldPrice);
+
+//Отображение html-страницы корзины
+function displayBasket(url, title, author, price) {
+    const basketWrapper = document.querySelector('.basket-wrapper');
+    const totalSum = document.querySelector('.total-sum');
+    
+    const number = getTotalSum(price, totalSum.textContent);
+    
+    const basketCard = document.createElement('div');
+    const basketBookPoster = document.createElement('img');
+    const basketBookInfo = document.createElement('div');
+    const basketBookTitle = document.createElement('h3');
+    const basketBookAuthor = document.createElement('div');
+    const basketBookPrice = document.createElement('div');
+
+    basketCard.classList.add('basket-card');
+    basketBookPoster.classList.add('basket-poster');
+    basketBookInfo.classList.add('basket-info')
+    basketBookPrice.classList.add('basket-price');
+
+    basketBookPoster.setAttribute('src', url);
+
+    basketBookTitle.textContent = title;
+    basketBookAuthor.innerHTML = '<span class="highlight">Автор: </span>' + author;
+    basketBookPrice.innerHTML = 'Цена: ' + price + ' $';
+    totalSum.textContent = number;
+
+    basketBookInfo.appendChild(basketBookTitle);
+    basketBookInfo.appendChild(basketBookAuthor);
+    basketCard.appendChild(basketBookPoster);
+    basketCard.appendChild(basketBookInfo);
+    basketCard.appendChild(basketBookPrice);
+
+    basketWrapper.appendChild(basketCard);
+}
+
+//Отображение html-страницы отфильтрованных книг
+async function displayFilterBooks(title, author, publishYyear, publishPlace, urlPoster, price) {
     const bookCard = document.createElement('div');
     const bookTitle = document.createElement('h3');
     const bookAuthor = document.createElement('div');
@@ -25,6 +69,11 @@ async function displayBooks(title, author, publishYyear, publishPlace, urlPoster
     bookPrice.classList.add('book-price');
     btnBuy.classList.add('btn-buy');
 
+    //Обработчик события для кнопки 'В корзину'
+    btnBuy.addEventListener('click', () => {
+        displayBasket(bookPoster.src, title, author, price)
+    })
+
     bookTitle.textContent = title;
     bookAuthor.innerHTML = '<span class="highlight">Автор: </span>' + author;
     bookPublish.innerHTML = '<span class="highlight">Публикация: </span>' + (!publishPlace ? publishYyear + ' г.' : [publishYyear + ' г.' + ' ' + publishPlace]);
@@ -37,6 +86,13 @@ async function displayBooks(title, author, publishYyear, publishPlace, urlPoster
     } else {
         bookPoster.setAttribute('src', urlPoster)
     }
+
+    bookTitle.textContent = title;
+    bookAuthor.innerHTML = '<span class="highlight">Автор: </span>' + author;
+    bookPublish.innerHTML = '<span class="highlight">Публикация: </span>' + (!publishPlace ? publishYyear + ' г.' : [publishYyear + ' г.'  + ' ' + publishPlace]);
+    bookPrice.textContent = 'Цена: ' + price + '$';
+    btnBuy.textContent = 'В корзину';
+
     bookCard.appendChild(bookPoster);
     bookCard.appendChild(bookTitle);
     bookCard.appendChild(bookAuthor);
@@ -59,8 +115,14 @@ async function getURLPoster(number) {
 //Событие по клику на кнопку "Поиск"
 btnSearch.addEventListener('click', async function () {
     const loader = document.querySelector('.loader');
-
+    
+    basket.classList.add('basket-hidden');
     loader.classList.remove('loader-hidden');
+    recommendations.classList.add('hidden');
+    discount.classList.add('hidden');
+    newBooks.classList.add('hidden');
+    footer.classList.add('hidden');
+
     cards.innerHTML = '';
     errorRequest.innerHTML = '';
 
@@ -87,9 +149,10 @@ btnSearch.addEventListener('click', async function () {
 
             loader.classList.add('loader-hidden');
             main.classList.remove('main-hidden');
+            footer.classList.remove('hidden');
 
-            await displayBooks(
-                book.title, book.author_name, book.publish_year,
+            await displayFilterBooks(
+                book.title, book.author_name, book.publish_year, 
                 book.publish_place, urlPoster, price)
 
             count++;
@@ -108,12 +171,26 @@ btnSearch.addEventListener('click', async function () {
     }
 })
 
+//Событие по клику на вкладку "Корзина"
+document.querySelector('.item-basket').addEventListener('click', () => {
+    main.classList.add('main-hidden');
+    basket.classList.remove('basket-hidden');
+    recommendations.classList.add('hidden');
+    discount.classList.add('hidden');
+    newBooks.classList.add('hidden');
+})
+
 //Клик на Лого bookBazaar в header возвращат на основную страницу
 headerTitle.addEventListener('click', function () {
     userInput.value = '';
     cards.innerHTML = '';
     errorRequest.innerHTML = '';
+
     main.classList.add('main-hidden');
+    basket.classList.add('basket-hidden');
+    recommendations.classList.remove('hidden');
+    discount.classList.remove('hidden');
+    newBooks.classList.remove('hidden');
 })
 
 

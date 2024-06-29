@@ -2,6 +2,7 @@
 @import 'main.scss';
 @import 'loader.scss';
 @import 'recomendations.scss';
+@import 'basket.scss';
 
 @import 'patterns.scss';
 @import 'footer.scss';
@@ -15,10 +16,15 @@
   padding: 0;
 }
 
-
 /*Медиа-запросы*/
-@media screen and (min-width: 634px) and (max-width: 992px) {
+@media screen and (min-width: 993px) and (max-width: 1040px) {
+  //Блок header
+  .header-wrapper__nav-items {
+    gap: 2.6vw;
+  }
+}
 
+@media screen and (min-width: 690px) and (max-width: 992px) {
   //Блок header
   .header-wrapper__title,
   .header-logo {
@@ -30,7 +36,7 @@
   }
 
   .header-wrapper__nav-items {
-    gap: 30px;
+    gap: 3vw;
   }
 
   #user-input {
@@ -71,10 +77,14 @@
     height: 80px;
     left: 45%;
   }
+
+  //Блок basket
+  .basket-price  {
+    white-space: nowrap;
+  }
 }
 
-
-@media screen and (max-width: 633px) {
+@media screen and (max-width: 689px) {
 
   //Блок header
   .header-wrapper {
@@ -104,7 +114,6 @@
   }
 
   .card {
-    @include secondary-font-smaller-main;
     font-size: 2.6vw;
   }
 
@@ -121,5 +130,46 @@
     width: 80px;
     height: 80px;
     left: 38%;
+  }
+
+  //Блок basket
+  .basket-info {
+    width: 200px;
+    margin: 0 20% 0 10%;
+  }
+
+  .basket-price  {
+    white-space: nowrap;
+  }
+
+  .basket-card {
+    font-size: 14px;
+  }
+
+  .basket-poster {
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  
+  //Блок basket
+  .basket-wrapper {
+    margin: 0;
+  }
+
+  .basket-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .btn-pay {
+    margin: 0 0 5px 0;
+    width: 100px;
+  }
+
+  .basket-container__pay {
+    font-size: 12px;
   }
 }

@@ -29,18 +29,18 @@ header {
 .header-wrapper__nav-items {
   @extend %secondary-font;
   display: flex;
-  gap: 60px;
+  gap: 40px;
   margin-top: 5px;
   list-style: none;
   margin: 0 20px;
 }
 
 .nav-item {
-  cursor: pointer;
+  text-decoration: none;
   color: $light-color;
 }
 
-.item-contacts {
+.item-basket {
   color: white;
 }
 
