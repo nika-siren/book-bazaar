@@ -5,11 +5,11 @@
 main {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin: 50px 0;
   position: relative;
 }
 
-.main-hidden, .error-request-hidden {
+.main-hidden, .error-request-hidden, .hidden {
   display: none;
 }
 

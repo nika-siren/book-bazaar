@@ -7,12 +7,16 @@
   font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf") format("truetype");
 }
-.basket-container__title, .error-request, .header-wrapper__title {
+.about__BookBazaare__title,
+.footer__nav-h2, .basket-container__title, .error-request, .header-wrapper__title {
   font-family: "PlayfairDisplay", Times, sans-serif;
   font-size: 38px;
 }
 
-.basket-card, .basket-container__pay, .card, .header-wrapper__nav-items {
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts, .basket-card, .basket-container__pay, .card, .header-wrapper__nav-items {
   font-family: "Roboto", Times, sans-serif;
   font-size: 16px;
 }
@@ -29,7 +33,6 @@ header {
   align-items: center;
   padding: 10px;
   width: 1320px;
-  border: 1px solid red;
 }
 
 .header-wrapper__title {
@@ -51,16 +54,12 @@ header {
 }
 
 .nav-item {
-  cursor: pointer;
+  text-decoration: none;
   color: #A4D6CF;
 }
 
 .item-basket {
   color: white;
-}
-
-.header-wrapper__search {
-  border: 1px solid red;
 }
 
 #user-input {
@@ -76,10 +75,6 @@ header {
   cursor: pointer;
 }
 
-/*.header-wrapper__basket {
-  width: 40px;
-  border: 1px solid red;
-}*/
 @font-face {
   font-family: "PlayfairDisplay";
   src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
@@ -88,12 +83,16 @@ header {
   font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf") format("truetype");
 }
-.basket-container__title, .error-request, .header-wrapper__title {
+.about__BookBazaare__title,
+.footer__nav-h2, .basket-container__title, .error-request, .header-wrapper__title {
   font-family: "PlayfairDisplay", Times, sans-serif;
   font-size: 38px;
 }
 
-.basket-card, .basket-container__pay, .card, .header-wrapper__nav-items {
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts, .basket-card, .basket-container__pay, .card, .header-wrapper__nav-items {
   font-family: "Roboto", Times, sans-serif;
   font-size: 16px;
 }
@@ -101,11 +100,11 @@ header {
 main {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin: 50px 0;
   position: relative;
 }
 
-.main-hidden, .error-request-hidden {
+.main-hidden, .error-request-hidden, .hidden {
   display: none;
 }
 
@@ -187,6 +186,128 @@ main {
     transform: rotate(360deg);
   }
 }
+.recommendations .container,
+.new .container,
+.discount .container {
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: rgb(138, 192, 138);
+}
+.recommendations .container .carousel-container,
+.new .container .carousel-container,
+.discount .container .carousel-container {
+  display: flex;
+  align-items: center;
+}
+.recommendations .container .carousel-container .carousel,
+.new .container .carousel-container .carousel,
+.discount .container .carousel-container .carousel {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  scroll-snap-type: x mandatory;
+}
+.recommendations .container .carousel-container .carousel .carousel-item,
+.new .container .carousel-container .carousel .carousel-item,
+.discount .container .carousel-container .carousel .carousel-item {
+  flex: 0 0 33.333%;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.recommendations .container .carousel-container .carousel .carousel-item img,
+.new .container .carousel-container .carousel .carousel-item img,
+.discount .container .carousel-container .carousel .carousel-item img {
+  max-width: 100%;
+  height: auto;
+}
+.recommendations .container .carousel-container .carousel .carousel-item .book-info,
+.new .container .carousel-container .carousel .carousel-item .book-info,
+.discount .container .carousel-container .carousel .carousel-item .book-info {
+  text-align: center;
+}
+.recommendations .container .carousel-container .carousel p,
+.new .container .carousel-container .carousel p,
+.discount .container .carousel-container .carousel p {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: large;
+}
+.recommendations .container .carousel-container h1,
+.new .container .carousel-container h1,
+.discount .container .carousel-container h1 {
+  margin-left: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: rgb(44, 70, 61);
+}
+.recommendations .container .carousel-container .carousel-control-prev,
+.recommendations .container .carousel-container .carousel-control-next,
+.new .container .carousel-container .carousel-control-prev,
+.new .container .carousel-container .carousel-control-next,
+.discount .container .carousel-container .carousel-control-prev,
+.discount .container .carousel-container .carousel-control-next {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+}
+.recommendations .container .carousel-container .carousel-control-prev img,
+.recommendations .container .carousel-container .carousel-control-next img,
+.new .container .carousel-container .carousel-control-prev img,
+.new .container .carousel-container .carousel-control-next img,
+.discount .container .carousel-container .carousel-control-prev img,
+.discount .container .carousel-container .carousel-control-next img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  align-items: center;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 800px;
+  margin: 20px auto;
+  margin-left: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.book-details img {
+  max-width: 200px;
+  height: auto;
+  margin-right: 20px;
+}
+.book-details .info {
+  display: flex;
+  flex-direction: column;
+}
+.book-details h2 {
+  margin: 0 0 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.book-details p {
+  margin: 0 0 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.book-details button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 4px;
+  margin-top: auto;
+}
+
 @font-face {
   font-family: "PlayfairDisplay";
   src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
@@ -195,12 +316,16 @@ main {
   font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf") format("truetype");
 }
-.basket-container__title, .header-wrapper__title, .error-request {
+.about__BookBazaare__title,
+.footer__nav-h2, .basket-container__title, .header-wrapper__title, .error-request {
   font-family: "PlayfairDisplay", Times, sans-serif;
   font-size: 38px;
 }
 
-.basket-card, .basket-container__pay, .header-wrapper__nav-items, .card {
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts, .basket-card, .basket-container__pay, .header-wrapper__nav-items, .card {
   font-family: "Roboto", Times, sans-serif;
   font-size: 16px;
 }
@@ -219,7 +344,7 @@ main {
   display: flex;
   flex-direction: column;
   width: 1120px;
-  margin-top: 50px;
+  margin: 50px 0;
 }
 
 .basket-container {
@@ -279,28 +404,162 @@ main {
   font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf") format("truetype");
 }
-.header-wrapper__title, .error-request, .basket-container__title {
+.about__BookBazaare__title,
+.footer__nav-h2, .header-wrapper__title, .error-request, .basket-container__title {
   font-family: "PlayfairDisplay", Times, sans-serif;
   font-size: 38px;
 }
 
-.header-wrapper__nav-items, .card, .basket-container__pay, .basket-card {
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts, .header-wrapper__nav-items, .card, .basket-container__pay, .basket-card {
   font-family: "Roboto", Times, sans-serif;
   font-size: 16px;
 }
 
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+}
+.about__BookBazaare__title,
+.footer__nav-h2, .header-wrapper__title, .error-request, .basket-container__title {
+  font-family: "PlayfairDisplay", Times, sans-serif;
+  font-size: 38px;
+}
+
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts, .header-wrapper__nav-items, .card, .basket-container__pay, .basket-card {
+  font-family: "Roboto", Times, sans-serif;
+  font-size: 16px;
+}
+
+.footer__main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #177165;
+  padding: clamp(1.875rem, 0.536rem + 3.571vw, 3.75rem);
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: row;
+  padding: clamp(1.875rem, 0.536rem + 3.571vw, 3.75rem);
+  gap: clamp(1.875rem, -0.804rem + 7.143vw, 5.625rem);
+}
+
+.footer__nav-list {
+  line-height: clamp(1.875rem, 0.982rem + 2.381vw, 3.125rem);
+}
+
+.footer__list-items {
+  list-style-type: none;
+  line-height: clamp(1.875rem, 0.982rem + 2.381vw, 3.125rem);
+}
+
+.footer__list-items:before {
+  content: "» ";
+}
+
+.footer__nav-h2 {
+  font-weight: normal;
+  padding-bottom: clamp(0.938rem, 0.268rem + 1.786vw, 1.875rem);
+}
+
+.about__BookBazaare {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.875rem, 0.982rem + 2.381vw, 3.125rem);
+  background-color: rgba(164, 214, 207, 0.3);
+  padding: clamp(1.875rem, 0.536rem + 3.571vw, 3.75rem);
+  max-width: clamp(16.563rem, 7.634rem + 23.81vw, 29.063rem);
+}
+
+.about__BookBazaare__title,
+.footer__nav-h2 {
+  color: white;
+  font-size: clamp(1.25rem, 0.893rem + 0.952vw, 1.75rem);
+}
+
+.footer__nav-list,
+.about__BookBazaare-text,
+.creators,
+.creators-contacts {
+  color: white;
+  font-size: clamp(0.813rem, 0.679rem + 0.357vw, 1rem);
+}
+
+.about__BookBazaare-text {
+  max-width: clamp(5.938rem, -2.991rem + 23.81vw, 18.438rem);
+}
+
+.about__BookBazaare__title {
+  font-size: clamp(1.563rem, 1.116rem + 1.19vw, 2.188rem);
+  cursor: pointer;
+}
+
+.footer-logo {
+  color: black;
+  font-style: italic;
+}
+
+.creators {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: #0A312C;
+  padding: clamp(1.25rem, 0.357rem + 2.381vw, 2.5rem);
+  gap: clamp(0.625rem, 0.179rem + 1.19vw, 1.25rem);
+}
+
+.creators_text {
+  padding-bottom: 10px;
+}
+
+.creators-links {
+  display: flex;
+  justify-content: center;
+  line-height: clamp(0.938rem, 0.491rem + 1.19vw, 1.563rem) x;
+}
+
+.creator-link,
+.creators-links-a {
+  color: #A4D6CF;
+  text-decoration: none;
+}
+
+.li-creators-links {
+  list-style-type: none;
+}
+
+@media screen and (max-width: 730px) {
+  .footer__nav {
+    flex-wrap: wrap;
+  }
+}
 /*sass --watch assets/scss/index.scss assets/styles/styles.css*/
 * {
   margin: 0;
   padding: 0;
 }
 
-/*.highlight {
-  font-weight: bold;
-}*/
 /*Медиа-запросы*/
-@media screen and (min-width: 634px) and (max-width: 992px) {
-  .header-wrapper__title, .header-logo {
+@media screen and (min-width: 993px) and (max-width: 1040px) {
+  .header-wrapper__nav-items {
+    gap: 2.6vw;
+  }
+}
+@media screen and (min-width: 690px) and (max-width: 992px) {
+  .header-wrapper__title,
+  .header-logo {
     font-family: "PlayfairDisplay", Times, sans-serif;
     font-size: calc(1rem + 2vw);
   }
@@ -309,7 +568,7 @@ main {
     font-size: 1.4vw;
   }
   .header-wrapper__nav-items {
-    gap: 30px;
+    gap: 3vw;
   }
   #user-input {
     width: 20vw;
@@ -341,8 +600,11 @@ main {
     height: 80px;
     left: 45%;
   }
+  .basket-price {
+    white-space: nowrap;
+  }
 }
-@media screen and (max-width: 633px) {
+@media screen and (max-width: 689px) {
   .header-wrapper {
     display: flex;
     flex-direction: column;
@@ -364,8 +626,6 @@ main {
     gap: 10px;
   }
   .card {
-    font-family: "Roboto", Times, sans-serif;
-    font-size: 1.6vw;
     font-size: 2.6vw;
   }
   .img-poster {
@@ -378,6 +638,36 @@ main {
     width: 80px;
     height: 80px;
     left: 38%;
+  }
+  .basket-info {
+    width: 200px;
+    margin: 0 20% 0 10%;
+  }
+  .basket-price {
+    white-space: nowrap;
+  }
+  .basket-card {
+    font-size: 14px;
+  }
+  .basket-poster {
+    width: 60px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .basket-wrapper {
+    margin: 0;
+  }
+  .basket-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  .btn-pay {
+    margin: 0 0 5px 0;
+    width: 100px;
+  }
+  .basket-container__pay {
+    font-size: 12px;
   }
 }
 

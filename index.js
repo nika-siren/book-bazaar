@@ -5,6 +5,10 @@ const cards = document.querySelector('.cards');
 const errorRequest = document.querySelector('.error-request');
 const headerTitle = document.querySelector('.header-wrapper__title');
 const basket = document.querySelector('.basket');
+const recommendations = document.querySelector('.recommendations');
+const discount = document.querySelector('.discount');
+const newBooks = document.querySelector('.new');
+const footer = document.querySelector('footer');
 
 const patternUrl = /^https:\/\/covers\.openlibrary\.org\/b\/isbn\/([a-z0-9]+)-([A-Z])\.jpg/i;
 
@@ -70,6 +74,12 @@ async function displayFilterBooks(title, author, publishYyear, publishPlace, url
         displayBasket(bookPoster.src, title, author, price)
     })
 
+    bookTitle.textContent = title;
+    bookAuthor.innerHTML = '<span class="highlight">Автор: </span>' + author;
+    bookPublish.innerHTML = '<span class="highlight">Публикация: </span>' + (!publishPlace ? publishYyear + ' г.' : [publishYyear + ' г.' + ' ' + publishPlace]);
+    bookPrice.textContent = 'Цена: ' + price + '$';
+    btnBuy.textContent = 'Купить';
+
     //Если в urlPoster приходит null - беру дефолтную обложку
     if (!urlPoster) {
         bookPoster.setAttribute('src', './assets/images/default-cover.jpg')
@@ -103,11 +113,16 @@ async function getURLPoster(number) {
 }
 
 //Событие по клику на кнопку "Поиск"
-btnSearch.addEventListener('click', async function() {
+btnSearch.addEventListener('click', async function () {
     const loader = document.querySelector('.loader');
     
     basket.classList.add('basket-hidden');
     loader.classList.remove('loader-hidden');
+    recommendations.classList.add('hidden');
+    discount.classList.add('hidden');
+    newBooks.classList.add('hidden');
+    footer.classList.add('hidden');
+
     cards.innerHTML = '';
     errorRequest.innerHTML = '';
 
@@ -126,23 +141,24 @@ btnSearch.addEventListener('click', async function() {
         let count = 0;
         for (let book of dataArray) {
             if (count > 19) break;
-            
+
             //проверка на то что ключ isbn есть в объекте book
             const urlPoster = 'isbn' in book ? await getURLPoster(book.isbn[0]) : null;
-            
+
             const price = getPrice()
 
             loader.classList.add('loader-hidden');
             main.classList.remove('main-hidden');
+            footer.classList.remove('hidden');
 
             await displayFilterBooks(
                 book.title, book.author_name, book.publish_year, 
                 book.publish_place, urlPoster, price)
-            
-            count ++;
+
+            count++;
         }
     }
-    catch(error) {
+    catch (error) {
         console.log('Ошибка при получении данных:', error.message);
 
         loader.classList.add('loader-hidden');
@@ -159,13 +175,115 @@ btnSearch.addEventListener('click', async function() {
 document.querySelector('.item-basket').addEventListener('click', () => {
     main.classList.add('main-hidden');
     basket.classList.remove('basket-hidden');
+    recommendations.classList.add('hidden');
+    discount.classList.add('hidden');
+    newBooks.classList.add('hidden');
 })
 
 //Клик на Лого bookBazaar в header возвращат на основную страницу
-headerTitle.addEventListener('click', function() {
+headerTitle.addEventListener('click', function () {
     userInput.value = '';
     cards.innerHTML = '';
     errorRequest.innerHTML = '';
+
     main.classList.add('main-hidden');
     basket.classList.add('basket-hidden');
+    recommendations.classList.remove('hidden');
+    discount.classList.remove('hidden');
+    newBooks.classList.remove('hidden');
 })
+
+
+// Recomendations
+document.addEventListener('DOMContentLoaded', function () {
+    const recommendationsApiUrl = 'https://www.googleapis.com/books/v1/volumes?q=subject:fiction';
+    const discountsApiUrl = 'https://www.googleapis.com/books/v1/volumes?q=subject:fiction';
+    const newsApiUrl = 'https://www.googleapis.com/books/v1/volumes?q=subject:fiction';
+
+    const fetchBooks = (url, carouselId) => {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const carousel = document.getElementById(carouselId);
+                const booksHtml = data.items.map(item => {
+                    const book = item.volumeInfo;
+                    const coverImage = book.imageLinks ? book.imageLinks.thumbnail : 'https://via.placeholder.com/128x192.png?text=No+Image';
+                    return `
+                  <div class="carousel-item" data-id="${item.id}" data-carousel="${carouselId}">
+                      <img src="${coverImage}" alt="${book.title}">
+                      <div class="book-info">
+                          <h5>${book.title}</h5>
+                          <p>${book.authors ? book.authors.join(', ') : 'Unknown Author'}</p>
+                      </div>
+                  </div>
+              `;
+                }).join('');
+                carousel.innerHTML = booksHtml;
+                addCarouselEventListeners(carouselId); // Adding event listeners after the books are loaded
+            })
+            .catch(error => console.error('Error fetching books:', error));
+    };
+
+    const addCarouselEventListeners = (carouselId) => {
+        const carousel = document.getElementById(carouselId);
+        carousel.querySelectorAll('.carousel-item').forEach(item => {
+            item.addEventListener('click', () => {
+                showBookDetails(item.dataset.id, carouselId); // Passing carouselId to showBookDetails
+            });
+        });
+    };
+
+    const showBookDetails = (bookId, carouselId) => {
+        const url = `https://www.googleapis.com/books/v1/volumes/${bookId}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const book = data.volumeInfo;
+                const coverImage = book.imageLinks ? book.imageLinks.thumbnail : 'https://via.placeholder.com/128x192.png?text=No+Image';
+                const bookDetailsHtml = `
+                  <div class="book-details">
+                      <img src="${coverImage}" alt="${book.title}">
+                      <div class="info">
+                          <h2>${book.title}</h2>
+                          <p>${book.authors ? book.authors.join(', ') : 'Unknown Author'}</p>
+                          <p>${book.description}</p>
+                          <button onclick="addToCart('${bookId}')">В корзину</button>
+                      </div>
+                  </div>
+              `;
+                const detailsContainer = document.createElement('div');
+                detailsContainer.innerHTML = bookDetailsHtml;
+                const carouselContainer = document.getElementById(carouselId).parentElement;
+                carouselContainer.innerHTML = ''; // Clear the carousel
+                carouselContainer.appendChild(detailsContainer); // Display the book details
+            })
+            .catch(error => console.error('Error fetching book details:', error));
+    };
+
+    const addToCart = (bookId) => {
+        // Logic to add the book to the cart and store in local storage
+        console.log(`Adding book with ID ${bookId} to cart`);
+    };
+
+    const setupCarouselControls = (prevBtnId, nextBtnId, carouselId) => {
+        const prevBtn = document.getElementById(prevBtnId);
+        const nextBtn = document.getElementById(nextBtnId);
+        const carousel = document.getElementById(carouselId);
+
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
+        });
+    };
+
+    fetchBooks(recommendationsApiUrl, 'bookCarousel');
+    fetchBooks(discountsApiUrl, 'discountCarousel');
+    fetchBooks(newsApiUrl, 'newCarousel');
+
+    setupCarouselControls('prevBtn', 'nextBtn', 'bookCarousel');
+    setupCarouselControls('discountPrevBtn', 'discountNextBtn', 'discountCarousel');
+    setupCarouselControls('newPrevBtn', 'newNextBtn', 'newCarousel');
+});

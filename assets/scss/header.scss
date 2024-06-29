@@ -13,7 +13,6 @@ header {
   align-items: center;
   padding: 10px;
   width: 1320px;
-  border: 1px solid red;
 }
 
 .header-wrapper__title {
@@ -37,17 +36,12 @@ header {
 }
 
 .nav-item {
-  cursor: pointer;
+  text-decoration: none;
   color: $light-color;
 }
 
 .item-basket {
   color: white;
-}
-
-.header-wrapper__search {
-  border: 1px solid red;
-  //display: flex;
 }
 
 #user-input {
@@ -62,8 +56,3 @@ header {
   border-radius: 50px;
   cursor: pointer;
 }
-
-/*.header-wrapper__basket {
-  width: 40px;
-  border: 1px solid red;
-}*/
