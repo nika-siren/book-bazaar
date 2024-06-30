@@ -1,5 +1,3 @@
-<img src="/assets/images/photo-readme1.png">
-
 # **Book Bazaar**
 
 Book Bazaar - онлайн-место для любителей книг. Сайт предлагает огромную коллекцию книг на любой вкус.
@@ -35,11 +33,9 @@ https://zhannaivashova.github.io/book-bazaar/
 - Клонировать репозиторий:
 
 ```
-
 git clone git@github.com:ZhannaIvashova/book-bazaar.git
 или
 git clone https://github.com/ZhannaIvashova/book-bazaar.git
-
 ```
 
 - Установите расширение `Live Server`
@@ -52,7 +48,7 @@ git clone https://github.com/ZhannaIvashova/book-bazaar.git
 
 ## Команда разработчиков :zap:
 
-:hibiscus: [Жанна Ивашова](https://github.com/ZhannaIvashova)  
-:hibiscus: [Nino Markarovi](https://github.com/Ninima1218)  
-:hibiscus: [Kristina](https://github.com/Belka-k)  
-:hibiscus: [bearcubbb](https://github.com/bearcubbb)
+[Жанна Ивашова](https://github.com/ZhannaIvashova)  
+[Nino Markarovi](https://github.com/Ninima1218)  
+[Kristina](https://github.com/Belka-k)  
+[bearcubbb](https://github.com/bearcubbb)
