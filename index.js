@@ -178,6 +178,32 @@ document.querySelector('.item-basket').addEventListener('click', () => {
     recommendations.classList.add('hidden');
     discount.classList.add('hidden');
     newBooks.classList.add('hidden');
+    footer.classList.remove('hidden');
+})
+
+//Функция переключения видимости блоков, находясь во вкладке "Фильтр"/"Корзина"
+function toggleVisibility() {
+    main.classList.add('main-hidden');
+    basket.classList.add('basket-hidden');
+    recommendations.classList.remove('hidden');
+    discount.classList.remove('hidden');
+    newBooks.classList.remove('hidden');
+    footer.classList.remove('hidden');
+}
+
+//Событие по клику на вкладку "Новинки"
+document.querySelector('.item-new').addEventListener('click', () => {
+    toggleVisibility();
+})
+
+//Событие по клику на вкладку "Рекомендации"
+document.querySelector('.item-recommendation').addEventListener('click', () => {
+    toggleVisibility();
+})
+
+//Событие по клику на вкладку "Контакты"
+document.querySelector('.item-contact').addEventListener('click', () => {
+    toggleVisibility();
 })
 
 //Клик на Лого bookBazaar в header возвращат на основную страницу
@@ -192,7 +218,6 @@ headerTitle.addEventListener('click', function () {
     discount.classList.remove('hidden');
     newBooks.classList.remove('hidden');
 })
-
 
 // Recomendations
 document.addEventListener('DOMContentLoaded', function () {
