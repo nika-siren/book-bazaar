@@ -59,6 +59,7 @@ header {
 }
 
 .item-basket {
+  cursor: pointer;
   color: white;
 }
 
