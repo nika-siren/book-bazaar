@@ -51,4 +51,4 @@ git clone https://github.com/ZhannaIvashova/book-bazaar.git
 [Жанна Ивашова](https://github.com/ZhannaIvashova)  
 [Nino Markarovi](https://github.com/Ninima1218)  
 [Kristina](https://github.com/Belka-k)  
-[bearcubbb](https://github.com/nika-siren)
+[nika-siren](https://github.com/nika-siren)
